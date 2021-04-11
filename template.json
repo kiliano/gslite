@@ -1,0 +1,36 @@
+{
+    "Actor": {},
+    "Item":{
+        "types" : [
+            "arma",
+            "armadura",
+            "veiculo"
+        ],
+
+        "templates" : {
+            "itemDescricao" : {
+                "descricao" : ""
+            },
+            "itemPeso" : {
+                "peso" : 0
+            }
+        },
+
+        "arma" :{
+            "templates" : ["itemDescricao"],
+              "dano": 0,
+              "tamanho": 0,
+              "incremento" : 0,
+              "alcance" : 0,
+              "recuo" : 0,
+              "recarga" : 0,
+              "ataquePericia" : "brandir"
+        },
+        "armadura" : {
+            "templates" : ["itemDescricao"],
+            "redutor": 0,
+            "penalidade" : 0
+        }
+    }
+
+}

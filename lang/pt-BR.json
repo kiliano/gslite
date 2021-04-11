@@ -1,0 +1,29 @@
+{
+    "gslite" : {
+        "ataque" : {
+            "none": "",
+            "briga" : "Briga",
+            "brandir" : "Brandir",
+            "armasHaste" : "Armas de Haste",
+            "facas" : "Facas",
+            "arcos" : "Arcos",
+            "bestas" : "Bestas",
+            "arremesso" : "Arremesso",
+            "armasLeves" : "Armas de Fogo leves",
+            "fuzis" : "Fuzis",
+            "rifles" : "Rifles",
+            "espingardas" : "Espingardas"
+        },
+        "arma" : {
+            "ataquePericia" : "Usa perícia:",
+            "dano": "Dano",
+            "tamanho": "Tamanho",
+            "incremento" : "Incremento",
+            "alcance" : "Alcance",
+            "recuo" : "Recuo",
+            "recarga" : "Recarga"
+        }
+    },
+
+    "arma.teste" : "Teste"
+}
