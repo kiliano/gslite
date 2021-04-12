@@ -1,18 +1,17 @@
 form {
-    position: relative;
-    overflow: hidden;
+   
 }
 
 input:not([type="submit"]) {
-    display: block;
-    padding: 20px 30px;
-    width: 100%;
-    margin-bottom: 20px;
-    border: 1px solid #fff;
-    background: #fff;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    // display: block;
+    // padding: 20px 30px;
+    // width: 100%;
+    // margin-bottom: 20px;
+    // border: 1px solid #fff;
+    // background: #fff;
+    // -webkit-border-radius: 5px;
+    // -moz-border-radius: 5px;
+    // border-radius: 5px;
     
     // Cor do placeholder
     &::-webkit-input-placeholder {
@@ -29,108 +28,66 @@ input:not([type="submit"]) {
 	}
     
     &:hover {
-        border: 1px solid #fff;
-        background: #f3f3f3;
-        cursor: pointer !important;
+    //     border: 1px solid #fff;
+    //     background: #f3f3f3;
+    //     cursor: pointer !important;
     }
     
     &:focus {
-        border: 1px solid $corprincipal;
-        cursor: pointer;
+        // border: 1px solid $corprincipal;
+        // cursor: pointer;
     }
 }
 
-input[type="checkbox"], input[type="radio"] {
-    border: 0;
-    position: absolute;
-    width: 0;
-    height: 0;
-    opacity: 0;
-    z-index: -100;
+// input[type="checkbox"], input[type="radio"] {
+//     border: 0;
+//     position: absolute;
+//     width: 0;
+//     height: 0;
+//     opacity: 0;
+//     z-index: -100;
     
-    + label {
-        .dg-icon  {
-            position: relative;
-            top: 4px;
-        }
+//     + label {
+//         .dg-icon  {
+//             position: relative;
+//             top: 4px;
+//         }
         
 
-        .dg-off {
-            color: #888;
-            display: inline-block;
-        }
+//         .dg-off {
+//             color: #888;
+//             display: inline-block;
+//         }
         
-        .dg-on {
-            color: $corprincipal;
-            display: none;
-        }
-    }
+//         .dg-on {
+//             color: $corprincipal;
+//             display: none;
+//         }
+//     }
     
-    &:checked {
-        + label {
-        .dg-off {
-            display: none;
-        }
+//     &:checked {
+//         + label {
+//         .dg-off {
+//             display: none;
+//         }
         
-        .dg-on {
-            display: inline-block;
-        }
-    }
+//         .dg-on {
+//             display: inline-block;
+//         }
+//     }
         
-    }
+//     }
     
-}
+// }
 
-label {
-    margin-bottom: 10px;
+// label {
+//     margin-bottom: 10px;
     
-    &[for] {
-        &:hover {
-            cursor: pointer;
-            opacity: 0.8;
-        }
-    }
-}
+//     &[for] {
+//         &:hover {
+//             cursor: pointer;
+//             opacity: 0.8;
+//         }
+//     }
+// }
 
-
-.dg-envio-sucesso {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: $corprincipal;
-    color: #fff;
-    padding: 30px;
-    text-align: center;
-    
-    font-size: 2em;
-    text-shadow: 0 2px rgba(0,0,0,0.2);
-    font-weight: bold;
-    
-    opacity: 0.9;
-    
-    z-index: 10;
-
-    display: none;
-
-    > span {
-        display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    }
-    
-    &:hover, &:focus {
-        color: #fff;
-        text-decoration: none;
-        opacity: 1;
-    }
-    
-    
-}
