@@ -1,7 +1,7 @@
 {
     "name": "gslite",
     "type": "system",
-    "title" : "GS Lite",
+    "title" : "G.S. Lite",
     "description" : "Um sistema genérico, completo e realista.",
     "version": "0.0.1",
     "minimumCoreVersion": "0.7.5",

@@ -1,0 +1,117 @@
+.mi-home-marca {
+    text-align: center;
+    img {
+        display: inline-block;
+        max-width: 200px;
+        width: 90%;
+    }
+}
+
+.mi-home {
+    min-height: 100vh;
+}
+
+.mi-home-titulo {
+    text-align: center;
+    
+    .mi-titulo, .mi-subtitulo {
+        display: inline-block;
+        font-size: 1.4em;
+        color: #666;
+    }
+    
+    .mi-titulo {
+        font-weight: 700;
+        margin-right: 5px;
+        // font-family: 'Fugaz One', cursive;
+    }
+    
+    .mi-subtitulo {
+        font-weight: 300;
+    }
+}
+
+.mi-home {
+    position: relative;
+    z-index: 10;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.mi-home-video {
+    position: fixed;
+    left: -15%;
+    top: 0;
+    min-width: 130%;
+    min-height: 100%;
+    opacity: 0.3;
+    filter: grayscale(100%)contrast(50%)brightness(200%);
+}
+
+@media(max-width: 1200px) {
+    .mi-home-video {
+        position: fixed;
+        left: -150%;
+        min-width: 300%;
+    }
+}
+
+.mi-home-instabtn {
+    text-align: center;
+    padding-top: 6vh;
+    
+    a {
+        transition: 300ms ease all;
+        display: inline-block;
+        background: #f09433; 
+        background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+        background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+        background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 40px;
+        font-size: 1.3em;
+        
+        &:hover, &:focus {
+            text-decoration: none;
+            
+            background: darken(#f09433,10%); 
+        background: -moz-linear-gradient(45deg, darken(#f09433,10%) 0%, darken(#e6683c,10%) 25%, darken(#dc2743,10%) 50%, darken(#cc2366,10%) 75%, darken(#bc1888,10%) 100%); 
+        background: -webkit-linear-gradient(45deg, darken(#f09433,10%) 0%,darken(#e6683c,10%) 25%,darken(#dc2743,10%) 50%,darken(#cc2366,10%) 75%,darken(#bc1888,10%) 100%); 
+        background: linear-gradient(45deg, darken(#f09433,10%) 0%,darken(#e6683c,10%) 25%,darken(#dc2743,10%) 50%,darken(#cc2366,10%) 75%,darken(#bc1888,10%) 100%); 
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='darken(#f09433,10%)', endColorstr='darken(#bc1888,10%)',GradientType=1 );
+        }
+    }
+}
+
+.mi-home-videocredit {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 0.5;
+    transition: 300ms ease all;
+    
+    &:hover {
+        opacity: 1;
+        cursor: default;
+    }
+}
+
+.mi-home {
+    padding-top: 0;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}

@@ -1,0 +1,24 @@
+
+// Bases
+@import 'base/variables';
+@import 'base/funcoes';
+@import 'base/mixins';
+@import 'base/placeholders';
+// @import 'base/reset';
+
+// Módulos
+// @import 'modules/bootstrap';
+// @import 'modules/slick';
+@import 'modules/animate';
+// @import 'modules/fancy';
+// @import 'modules/scrollbar';
+
+
+// Componentes
+@import 'components/buttons';
+@import 'components/loading';
+@import 'components/form';
+
+
+// Layout
+@import 'layout/home';

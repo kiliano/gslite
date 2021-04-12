@@ -1,36 +1,41 @@
-<form class="{{cssClass}}" autocomplete="off">
-    <header class="sheet-header">
-        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
-        <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-    </header>
-    <div>
-        <table>
-            <tr>
-                <th>{{localize "gslite.arma.ataquePericia"}}</th>
-                <th>{{localize "gslite.ataque.briga"}}</th>
-                <th>{{localize "gslite.arma.dano"}}</th>
-                <!-- <th>{{localize "gslite.arma.tamanho"}}</th>
-                <th>{{localize "gslite.arma.incremento"}}</th>
-                <th>{{localize "gslite.arma.alcance"}}</th>
-                <th>{{localize "gslite.arma.recuo"}}</th>
-                <th>{{localize "gslite.arma.recarga"}}</th> -->
-            </tr>
-            <tr>
-                <td>
-                    <select name="data.ataquePericia">
-                        {{#select data.ataquePericia}}
-                        {{#each config.ataquePericia as |name type|}}
-                        <option value="{{type}}">{{localize name}}</option>
-                        {{/each}}
-                        {{/select}}
-                    </select>
-                </td>
-                <td>
-                    <input type="text" name="data.dano" value="{{data.dano}}" data-dtype="Number">
-                </td>
-            </tr>
-        </table>
-
-        <textarea name="data.descricao">{{data.descricao}}</textarea>
-    </div>
-</form>
+<div class="">
+    <form class="{{cssClass}}" autocomplete="off">
+        <header class="sheet-header">
+            <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+            <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        </header>
+        <div>
+            <table class="teste01">
+                <tr>
+                    <th>{{localize "gslite.arma.ataquePericia"}}</th>
+                    <th>{{localize "gslite.ataque.briga"}}</th>
+                    <th>{{localize "gslite.arma.dano"}}</th>
+                    <!-- <th>{{localize "gslite.arma.tamanho"}}</th>
+                    <th>{{localize "gslite.arma.incremento"}}</th>
+                    <th>{{localize "gslite.arma.alcance"}}</th>
+                    <th>{{localize "gslite.arma.recuo"}}</th>
+                    <th>{{localize "gslite.arma.recarga"}}</th> -->
+                </tr>
+                <tr>
+                    <td>
+                        <select name="data.ataquePericia">
+                            {{#select data.ataquePericia}}
+                            {{#each config.ataquePericia as |name type|}}
+                            <option value="{{type}}">{{localize name}}</option>
+                            {{/each}}
+                            {{/select}}
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" name="data.dano" value="{{data.dano}}" data-dtype="Number">
+                    </td>
+                </tr>
+            </table>
+    
+            <!-- <textarea name="data.descricao">{{data.descricao}}</textarea> -->
+    
+            {{editor content=data.descricao target="data.descricao" button=true owner=owner editable=editable}}
+        </div>
+    </form>
+    
+</div>
