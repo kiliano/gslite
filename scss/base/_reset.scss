@@ -334,9 +334,21 @@ th {
 }
 
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    // font-family: 'Fira Code', monospace;
     font-size: $fontBase;
     line-height: 1.42857143;
-    color: #333333;
-    background-color: #ffffff;
+    // color: #333333;
+    // background-color: #ffffff;
+}
+
+
+select, option, input, textarea {
+    color: #333;
+}
+
+.ficha {
+    select, option, input, textarea {
+        color: #fff;
+    }
 }

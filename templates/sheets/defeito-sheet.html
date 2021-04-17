@@ -1,0 +1,15 @@
+<div class="">
+    <form class="{{cssClass}}" autocomplete="off">
+        <header class="sheet-header">
+            <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+            <h1><input name="name" type="text" value="{{item.name}}" placeholder="Nome"/></h1>
+        </header>
+        <div>
+            <input name="data.explicacao" type="text" value="{{data.explicacao}}" placeholder="Explicacação"/>
+        </div>
+        <div>
+            {{editor content=data.descricao target="data.descricao" button=true owner=owner editable=editable}}
+        </div>
+    </form>
+    
+</div>

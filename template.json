@@ -1,35 +1,219 @@
 {
-    "Actor": {},
-    "Item":{
+    "Actor": {
         "types" : [
-            "arma",
-            "armadura",
-            "veiculo"
+            "personagem",
+            "simples"
         ],
 
         "templates" : {
-            "itemDescricao" : {
-                "descricao" : ""
+            "Tatributos" : {
+                "forca" : {
+                    "valor" : 3,
+                    "bonus" : 0
+                },
+                "reflexos" : {
+                    "valor" : 3,
+                    "bonus" : 0
+                },
+                "inteligencia" : {
+                    "valor" : 3,
+                    "bonus" : 0
+                },
+                "empatia" : {
+                    "valor" : 3,
+                    "bonus" : 0
+                },
+
+                "xp-atributos" : 0
             },
-            "itemPeso" : {
-                "peso" : 0
+
+            "Tdescricao" : {
+                "tamanho" : "4",
+                "raca": "",
+                "altura-peso": "",
+                "idade" : "18",
+                "genero" : "",
+                "aparencia-resumo": ""
+            },
+            
+            "Tsaude" : {
+                "pv" :{
+                    "value" : 10,
+                    "max" : 10,
+                    "max-bonus" : 10
+                },
+
+                "fadiga" :{
+                    "value" : 10,
+                    "max" : 10,
+                    "max-bonus" : 10
+                },
+
+                "corpo" : "humanoide",
+
+                "cabeca" : {
+                    "status" : "normal",
+                    "rd" : 0
+                },
+
+                "torso" : {
+                    "status" : "normal",
+                    "rd" : 0
+                },
+
+                "braco-e" : {
+                    "status" : "normal",
+                    "rd" : 0
+                },
+
+                "braco-d" : {
+                    "status" : "normal",
+                    "rd" : 0
+                },
+
+                "perna-e" : {
+                    "status" : "normal",
+                    "rd" : 0
+                },
+
+                "perna-d" : {
+                    "status" : "normal",
+                    "rd" : 0
+                },
+
+                "cauda" : {
+                    "status" : "normal",
+                    "rd" : 0
+                }
+
             }
         },
 
-        "arma" :{
-            "templates" : ["itemDescricao"],
-              "dano": 0,
-              "tamanho": 0,
-              "incremento" : 0,
-              "alcance" : 0,
-              "recuo" : 0,
-              "recarga" : 0,
-              "ataquePericia" : "brandir"
+        "personagem" :{
+            "templates" : ["Tatributos", "Tdescricao", "Tsaude"],
+            "jogador" : ""
+
         },
+
+        "simples" :{
+            "templates" : ["Tatributos", "Tsaude", "Tdescricao"]
+        }
+    },
+    "Item":{
+        "types" : [
+            "arma-corpo-a-corpo",
+            "arma-a-distancia",
+            "escudo",
+            "armadura",
+            "consumivel",
+            "geral",
+            "transporte",
+            "defeito",
+            "qualidade",
+            "pericia"
+        ],
+
+        "templates" : {
+            "Tdescricao" : {
+                "descricao" : "Descrição"
+            },
+
+            "Tequipavel" : {
+                "equipavel" : true
+            },
+
+            "Tqualidade" : {
+                "qualidade" : "normal"
+            },
+            "Tvolume" : {
+                "peso" : 0.1,
+                "tamanho" : "4",
+                "somar-peso" : true,
+
+                "arremessavel" : false,
+                "pericia-arremesso" : "arremesso",
+                "dano-arremesso" : "1d3",
+                "incremento-arremesso" : 0,
+
+                "impacto" : false,
+                "pericia-impacto" : "brandir",
+                "pericia-impacto-sinergia" : "briga",
+                "dano-impacto" : "1d3",
+
+                "quebravel" : true,
+                "redutor-quebravel" : 5,
+                "quebravel-resistencia" : 50
+            }
+        },
+
+        "arma-corpo-a-corpo" :{
+            "templates" : ["Tdescricao","Tvolume","Tqualidade","Tequipavel"],
+            "dano" : "1d6",
+            "tipo-dano" : ["cortante","perfurante"],
+            "pericia" : "brandir",
+            "sinergia" : "",
+            "aparo" : 1
+        },
+
+        "escudo" :{
+            "templates" : ["Tdescricao","Tvolume","Tqualidade","Tequipavel"],
+            "bonus-bloqueio" : 2,
+            "redutor" : 10,
+            "dano" : "1d3"
+        },
+
+        "arma-a-distancia" :{
+            "templates" : ["Tdescricao","Tvolume","Tqualidade","Tequipavel"],
+            "dano" : "1d6",
+            "tipo-dano" : ["perfurante"],
+            "municao" : "flechas",
+            "pericia" : "arcos",
+            "sinergia" : "",
+            "alcance" : 20,
+            "recarga-dificuldade" : 9,
+            "incremento" : 0,
+            "arma-de-fogo" : false,
+            "recuo" : 0,
+            "cadencia" : ["manual"],
+            "municao-armada" : 1,
+            "recarga-municao" : 1
+        },
+
         "armadura" : {
-            "templates" : ["itemDescricao"],
-            "redutor": 0,
-            "penalidade" : 0
+            "templates" : ["Tdescricao","Tvolume","Tqualidade","Tequipavel"],
+            "redutor-geral": 1,
+            "corpo" : ["cabeca", "bracos", "pernas", "torso"],
+            "movimentacao" : -1,
+            "redutor-especifico" : 0,
+            "redutor-especifico-tipo" : []
+        },
+
+        "consumivel" : {
+            "templates" : ["Tdescricao","Tvolume","Tqualidade","Tequipavel"],
+            "quantidade": 1,
+            "contagem" : "input",
+            "valor-maximo": false,
+            "valor-maximo-numero": 1
+        },
+
+        "geral" : {
+            "templates" : ["Tdescricao","Tvolume","Tqualidade"]
+        },
+        "defeito" : {
+            "descricao" : "Descrição",
+            "custos" : [-1],
+            "custosTxt" : ["normal"],
+            "unico" : false,
+            "cumulativo" : false
+        },
+
+        "qualidade" : {
+            "descricao" : "Descrição",
+            "explicacao" : "",
+            "custos" : [1],
+            "custosTxt" : ["normal"],
+            "unico" : false,
+            "cumulativo" : false
         }
     }
 
