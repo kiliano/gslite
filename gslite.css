@@ -3539,8 +3539,7 @@ body {
   width: 100%; }
 .ficha-perfil-dados .ficha-jogador input {
   display: inline-block;
-  width: 80%;
-  color: #fad94c; }
+  width: 80%; }
 .ficha-perfil-dados .ficha-info input {
   width: 40px;
   padding-right: 2px;
@@ -3548,6 +3547,9 @@ body {
   font-style: normal; }
   .ficha-perfil-dados .ficha-info input.ficha-3algarismos {
     width: 25px; }
+
+.window-app .window-content .ficha-jogador input {
+  color: #fad94c; }
 
 .ficha-perfil-atributos .ficha-xp, .ficha-perfil-pericias .ficha-xp {
   opacity: 0.7;
@@ -3576,5 +3578,16 @@ body {
     border-radius: 10px;
     padding: 15px;
     color: #fff; }
+  .window-app .window-content .tabs .item {
+    overflow: hidden;
+    white-space: nowrap; }
+  .window-app .window-content select, .window-app .window-content input, .window-app .window-content textarea, .window-app .window-content button {
+    color: #fff; }
+  .window-app .window-content button {
+    background: #ee63a2; }
+  .window-app .window-content option, .window-app .window-content optgroup {
+    color: #333; }
+  .window-app .window-content p, .window-app .window-content form .notes, .window-app .window-content form .hint {
+    color: #999; }
 
 /*# sourceMappingURL=gslite.css.map */

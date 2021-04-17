@@ -20,4 +20,25 @@
 		padding: 15px;
 		color: #fff;
 	}
+
+	.tabs .item {
+		overflow: hidden;
+    white-space: nowrap;
+	}
+
+	select, input, textarea, button {
+        color: #fff;
+    }
+
+    button {
+    	background: #ee63a2;
+    }
+
+    option,optgroup {
+    	color: #333;
+    }
+
+    p, form .notes, form .hint {
+    	color: #999;
+    }
 }

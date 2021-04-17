@@ -827,7 +827,7 @@ body {
         input { 
             display: inline-block;
             width: 80%;
-            color: #fad94c;
+            
         }
     }
     
@@ -843,6 +843,10 @@ body {
             }
         }
     }
+}
+
+.window-app .window-content .ficha-jogador input {
+	color: #fad94c;
 }
 
 
