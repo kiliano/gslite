@@ -462,31 +462,102 @@
 							<div class="ficha-corpo-humanoide">
 								<img src="systems/gslite/img/corpo/humanoide.png" alt="humanoide">
 
-								<div class="ficha-corpo-parte ficha-corpo-cabeca">
-									<input type="text" value="5" class="ficha-corpo-rd">
+								<div class="ficha-corpo-parte ficha-corpo-cabeca tooltip-box jsSelectFakeContext">
+                                    <span class="tooltip">cabeça</span>
+                                    <input type="text" name="data.cabeca.rd" value="{{data.cabeca.rd}}" class="ficha-corpo-rd jsNumeroConta ficha-corpo-status-{{data.cabeca.status}}">
+                                    <div class="ficha-selectfake-box">
+                                        <div class="ficha-selectfake">
+                                            <select name="data.cabeca.status">
+                                                <option value="normal" {{#if (eq data.cabeca.status "normal")}}selected{{/if}}>Normal</option>
+                                                <option value="ferido" {{#if (eq data.cabeca.status "ferido")}}selected{{/if}}>Ferido</option>
+                                                <option value="incapacitado" {{#if (eq data.cabeca.status "incapacitado")}}selected{{/if}}>Incapacitado</option>
+                                            </select>
+                                        </div>
+                                        <div class="ficha-selectfake-sombra"></div>
+                                    </div>
 								</div>
 
-								<div class="ficha-corpo-parte ficha-corpo-torso">
-									<input type="text" value="5" class="ficha-corpo-rd">
+								<div class="ficha-corpo-parte ficha-corpo-torso ficha-corpo-status-{{data.torso.status}} tooltip-box jsSelectFakeContext">
+                                    <span class="tooltip">torso</span>
+                                    <input type="text" name="data.torso.rd" value="{{data.torso.rd}}" class="ficha-corpo-rd jsNumeroConta  ficha-corpo-status-{{data.torso.status}}">
+
+                                     <div class="ficha-selectfake-box">
+                                        <div class="ficha-selectfake">
+                                            <select name="data.torso.status">
+                                                <option value="normal" {{#if (eq data.torso.status "normal")}}selected{{/if}}>Normal</option>
+                                                <option value="ferido" {{#if (eq data.torso.status "ferido")}}selected{{/if}}>Ferido</option>
+                                                <option value="incapacitado" {{#if (eq data.torso.status "incapacitado")}}selected{{/if}}>Incapacitado</option>
+                                            </select>
+                                        </div>
+                                        <div class="ficha-selectfake-sombra"></div>
+                                    </div>
 								</div>
 
-								<div class="ficha-corpo-parte ficha-corpo-bracoE">
-									<input type="text" value="5" class="ficha-corpo-rd">
+								<div class="ficha-corpo-parte ficha-corpo-bracoE ficha-corpo-status-{{data.braco-e.status}} tooltip-box jsSelectFakeContext">
+                                    <span class="tooltip">braço esquerdo</span>
+                                    <input type="text" name="data.braco-e.rd" value="{{data.braco-e.rd}}" class="ficha-corpo-rd jsNumeroConta  ficha-corpo-status-{{data.braco-e.status}}">
+
+                                     <div class="ficha-selectfake-box">
+                                        <div class="ficha-selectfake">
+                                            <select name="data.braco-e.status">
+                                                <option value="normal" {{#if (eq data.braco-e.status "normal")}}selected{{/if}}>Normal</option>
+                                                <option value="ferido" {{#if (eq data.braco-e.status "ferido")}}selected{{/if}}>Ferido</option>
+                                                <option value="incapacitado" {{#if (eq data.braco-e.status "incapacitado")}}selected{{/if}}>Incapacitado</option>
+                                            </select>
+                                        </div>
+                                        <div class="ficha-selectfake-sombra"></div>
+                                    </div>
 								</div>
 
 
-								<div class="ficha-corpo-parte ficha-corpo-bracoD">
-									<input type="text" value="5" class="ficha-corpo-rd">
+								<div class="ficha-corpo-parte ficha-corpo-bracoD ficha-corpo-status-{{data.braco-d.status}} tooltip-box jsSelectFakeContext">
+                                    <span class="tooltip">braço direito</span>
+                                    <input type="text" name="data.braco-d.rd" value="{{data.braco-d.rd}}" class="ficha-corpo-rd jsNumeroConta  ficha-corpo-status-{{data.braco-d.status}}">
+
+                                     <div class="ficha-selectfake-box">
+                                        <div class="ficha-selectfake">
+                                            <select name="data.braco-d.status">
+                                                <option value="normal" {{#if (eq data.braco-d.status "normal")}}selected{{/if}}>Normal</option>
+                                                <option value="ferido" {{#if (eq data.braco-d.status "ferido")}}selected{{/if}}>Ferido</option>
+                                                <option value="incapacitado" {{#if (eq data.braco-d.status "incapacitado")}}selected{{/if}}>Incapacitado</option>
+                                            </select>
+                                        </div>
+                                        <div class="ficha-selectfake-sombra"></div>
+                                    </div>
 								</div>
 
 
-								<div class="ficha-corpo-parte ficha-corpo-pernaE ficha-incapacitado">
-									<input type="text" value="5" class="ficha-corpo-rd">
+								<div class="ficha-corpo-parte ficha-corpo-pernaE ficha-corpo-status-{{data.perna-e.status}} tooltip-box jsSelectFakeContext">
+                                    <span class="tooltip">perna esquerda</span>
+                                    <input type="text" name="data.perna-e.rd" value="{{data.perna-e.rd}}" class="ficha-corpo-rd jsNumeroConta  ficha-corpo-status-{{data.perna-e.status}}">
+
+                                     <div class="ficha-selectfake-box">
+                                        <div class="ficha-selectfake">
+                                            <select name="data.perna-e.status">
+                                                <option value="normal" {{#if (eq data.perna-e.status "normal")}}selected{{/if}}>Normal</option>
+                                                <option value="ferido" {{#if (eq data.perna-e.status "ferido")}}selected{{/if}}>Ferido</option>
+                                                <option value="incapacitado" {{#if (eq data.perna-e.status "incapacitado")}}selected{{/if}}>Incapacitado</option>
+                                            </select>
+                                        </div>
+                                        <div class="ficha-selectfake-sombra"></div>
+                                    </div>
 								</div>
 
 
-								<div class="ficha-corpo-parte ficha-corpo-pernaD ficha-ferido">
-									<input type="text" value="5" class="ficha-corpo-rd">
+								<div class="ficha-corpo-parte ficha-corpo-pernaD ficha-corpo-status-{{data.perna-d.status}} tooltip-box jsSelectFakeContext">
+                                    <span class="tooltip">perna direita</span>
+                                    <input type="text" name="data.perna-d.rd" value="{{data.perna-d.rd}}" class="ficha-corpo-rd jsNumeroConta  ficha-corpo-status-{{data.perna-d.status}}">
+
+                                     <div class="ficha-selectfake-box">
+                                        <div class="ficha-selectfake">
+                                            <select name="data.perna-d.status">
+                                                <option value="normal" {{#if (eq data.perna-d.status "normal")}}selected{{/if}}>Normal</option>
+                                                <option value="ferido" {{#if (eq data.perna-d.status "ferido")}}selected{{/if}}>Ferido</option>
+                                                <option value="incapacitado" {{#if (eq data.perna-d.status "incapacitado")}}selected{{/if}}>Incapacitado</option>
+                                            </select>
+                                        </div>
+                                        <div class="ficha-selectfake-sombra"></div>
+                                    </div>
 								</div>
 
 								<div class="ficha-corpo-esqdir">
@@ -1055,6 +1126,10 @@
                         $("[fichaunica='{{strToCode actor.name}}'] .jsEditavelChangeLi").show();
                     }
                 });
+            });
+
+            $("[fichaunica='{{strToCode actor.name}}'] .jsSelectFakeContext").contextmenu(function(){
+                $(this).find(".ficha-selectfake-box").fadeToggle();
             });
 
 

@@ -719,6 +719,15 @@ body {
     &:focus {
         color: #fff;
     }
+
+    &.ficha-corpo-status-ferido {
+        border-color: #f2a541;
+    }
+
+
+    &.ficha-corpo-status-incapacitado {
+        border-color: #de2626;
+    }
 }
 
 .ficha-corpo-parte {
