@@ -96,7 +96,8 @@
             "templates" : ["Tatributos", "Tdescricao", "Tsaude"],
             "jogador" : "NPC",
             "abaAberta" : "perfil",
-            "modalAberto" : "modaloff"
+            "modalAberto" : "modaloff",
+            "editavel" : "true"
 
         },
 

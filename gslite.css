@@ -3038,6 +3038,9 @@ a.ficha-modal-fechar {
   a.ficha-modal-fechar:hover {
     background: #e93587; }
 
+.ficha-editavel-false .numero-conta-menos {
+  display: none !important; }
+
 .numero-tooltip {
   position: absolute;
   background: rgba(0, 0, 0, 0.9);

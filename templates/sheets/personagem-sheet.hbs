@@ -1,4 +1,4 @@
-<form class="ficha" autocomplete="off" abaAberta="{{data.abaAberta}}" modalAberto="{{data.modalAberto}}" fichaunica="{{strToCode actor.name}}">
+<form class="ficha ficha-editavel-{{data.editavel}}" autocomplete="off" abaAberta="{{data.abaAberta}}" modalAberto="{{data.modalAberto}}" fichaunica="{{strToCode actor.name}}">
 
 
     	<div class="ficha-box-stroke gradiente">
@@ -36,6 +36,13 @@
 							histórico
 						</a>
 					</li>
+
+                    <li style="display:none" class="jsEditavelChangeLi">
+                        <a href="javascript:void(0)" class="jsEditavelChange" editavelValor="{{data.editavel}}">
+							editável: {{data.editavel}}
+						</a>
+                        <input name="data.editavel" type="hidden" value="{{data.editavel}}">
+                    </li>
 				</ul>
 			</div>
 			<!-- /Sidebar -->
@@ -82,8 +89,9 @@
 							</div>
 
 							<div class="ficha-xp">
-                                <span class="jsXpAtributosFake"></span> pts
+                                <span class="jsXpAtributosFake"></span> xp atr
                                 <input type="hidden" name="data.xp-atributos" value="{{data.xp-atributos}}" class="jsXpAtributos">
+                                <input type="hidden" value="0" class="jsXpAtributosFakeInput">
 
                                 <div class="minimodalAddXp">
                                     <span>Adicionar Pontos de Atributo</span>
@@ -121,12 +129,12 @@
 											</span>
 
 											<span class="ficha-numero gradiente-txt">
-												5
+												{{somaAtt data.reflexos.graduacao data.reflexos.racial data.reflexos.bonus}}
 											</span>
 										</span>
 
 										<span class="ficha-soma">
-											4 + 1 + 0
+											{{data.reflexos.graduacao}} + {{data.reflexos.racial}} + {{data.reflexos.bonus}}
 										</span>
 									</a>
 
@@ -137,12 +145,12 @@
 											</span>
 
 											<span class="ficha-numero gradiente-txt">
-												4
+												{{somaAtt data.inteligencia.graduacao data.inteligencia.racial data.inteligencia.bonus}}
 											</span>
 										</span>
 
 										<span class="ficha-soma">
-											4 + 0 + 0
+											{{data.inteligencia.graduacao}} + {{data.inteligencia.racial}} + {{data.inteligencia.bonus}}
 										</span>
 									</a>
 
@@ -153,12 +161,12 @@
 											</span>
 
 											<span class="ficha-numero gradiente-txt">
-												5
+												{{somaAtt data.empatia.graduacao data.empatia.racial data.empatia.bonus}}
 											</span>
 										</span>
 
 										<span class="ficha-soma">
-											4 + 0 + 1
+											{{data.empatia.graduacao}} + {{data.empatia.racial}} + {{data.empatia.bonus}}
 										</span>
 									</a>
 								</div>
@@ -517,7 +525,7 @@
 								</span>
 
 								<div class="ficha-xp">
-									<span class="jsXpAtributosFake"></span> pts
+									<span class="jsXpAtributosFake"></span> xp atr
 								</div>
 							</div>
 
@@ -561,19 +569,15 @@
 													<span class="numero-conta-sinal">
 														-
 													</span>
-													<span class="numero-tooltip">
-														+ 1 pts
-													</span>
+													<span class="numero-tooltip"></span>
 												</a>
 
 
-												<a href="javascript:void(0)" class="numero-conta-mais jsContaMaisAtributo">
+												<a href="javascript:void(0)" class="numero-conta-mais jsContaMaisAtributo" valorProximo="0">
 													<span class="numero-conta-sinal">
 														+
 													</span>
-													<span class="numero-tooltip">
-														- 1 pts
-													</span>
+													<span class="numero-tooltip"></span>
 												</a>
 
 
@@ -645,26 +649,33 @@
 
             $("[fichaunica='{{strToCode actor.name}}'] .jsContaMaisAtributo, [fichaunica='{{strToCode actor.name}}'] .jsContaMenosAtributo").click(function(){
                 var numeroAlvo = $(this).parent(".numero-box").find(".numero-input").val();
-                var xpAtual = $(this).parents(".ficha").find(".jsXpAtributos").val();
+                var xpFakeDisponivel = $(this).parents(".ficha").find(".jsXpAtributosFakeInput").val();
                 if(typeof(numeroAlvo) != "number") {
                     numeroAlvo = parseInt(numeroAlvo);
                 }
 
-                if(typeof(xpAtual) != "number") {
-                    xpAtual = parseInt(xpAtual);
+                if(typeof(xpFakeDisponivel) != "number") {
+                    xpFakeDisponivel = parseInt(xpFakeDisponivel);
                 }
 
 
                 if($(this).hasClass("jsContaMaisAtributo")) {
-                    numeroAlvo += 1;
-                    xpAtual -= 1;
+                    var proximoGasto = parseInt($(this).attr("valorproximo"));
+                    console.log(proximoGasto);
+                    console.log(xpFakeDisponivel);
+
+                    if(proximoGasto > xpFakeDisponivel) {
+                        alert("XP indisponível");
+                    } else {
+                        numeroAlvo += 1;
+                        $(this).parent(".numero-box").find(".numero-input").val(numeroAlvo).trigger("change");
+                    }
+                    
                 } else {
                     numeroAlvo -= 1;
-                    xpAtual += 1;
+                    $(this).parent(".numero-box").find(".numero-input").val(numeroAlvo).trigger("change");
                 }
 
-                $(this).parent(".numero-box").find(".numero-input").val(numeroAlvo).trigger("change");
-                //$(this).parents(".ficha").find(".jsXpAtributos").val(xpAtual).trigger("change");
             });
 
             
@@ -699,6 +710,8 @@
             var xpTotal{{strToCode actor.name}} = parseInt($('[fichaunica="{{strToCode actor.name}}"] [name="data.xp-atributos"]').val());
 
             $("[fichaunica='{{strToCode actor.name}}'] .jsXpAtributosFake").html((xpTotal{{strToCode actor.name}}-xpGasto{{strToCode actor.name}}).toString());
+            $("[fichaunica='{{strToCode actor.name}}'] .jsXpAtributosFakeInput").val((xpTotal{{strToCode actor.name}}-xpGasto{{strToCode actor.name}}));
+            
 
 
             $("[fichaunica='{{strToCode actor.name}}'] .ficha-perfil-atributos .ficha-xp, [fichaunica='{{strToCode actor.name}}'] .ficha-perfil-pericias .ficha-xp").contextmenu(function(){
@@ -715,7 +728,61 @@
                     alert("Inválido");
                 }
             });
-            
+
+
+            $("[fichaunica='{{strToCode actor.name}}'] .jsContaMaisAtributo, [fichaunica='{{strToCode actor.name}}'] .jsContaMenosAtributo").each(function(){
+                var valorAtribuloGraduado = parseInt($(this).parents(".numero-box").find(".numero-input").val());
+
+                if(valorAtribuloGraduado) {
+                    if($(this).hasClass("jsContaMaisAtributo")) {
+                        valorAtribuloGraduado += 1;
+                        var valorAtribuloGraduadoArredondado = Math.ceil(valorAtribuloGraduado/5);
+                        $(this).find(".numero-tooltip").html(" -"+valorAtribuloGraduadoArredondado+" xp atr");
+                        $(this).attr("valorProximo",valorAtribuloGraduadoArredondado);
+                        
+                    } else {
+                        valorAtribuloGraduado -= 1;
+                        if(valorAtribuloGraduado > 0) {
+                            $(this).show();
+                            valorAtribuloGraduado += 1;
+                            var valorAtribuloGraduadoArredondado = Math.ceil(valorAtribuloGraduado/5);
+                            $(this).find(".numero-tooltip").html(" +"+valorAtribuloGraduadoArredondado+" xp atr");
+                        } else {
+                            valorAtribuloGraduado = 0;
+                            $(this).hide();
+                        }
+                    }
+
+                }
+
+
+                $("[fichaunica='{{strToCode actor.name}}'] .jsEditavelChange").click(function(){
+                    var editavelValor = $(this).attr("editavelValor");
+                    if(editavelValor === "false") {
+                        $(this).parents(".ficha").find('[name="data.editavel"]').val("true").trigger("change");
+                    } else {
+                        $(this).parents(".ficha").find('[name="data.editavel"]').val("false").trigger("change");
+                    }
+                });
+
+
+                let editarFichaContagem{{strToCode actor.name}} = 0;
+                $("[fichaunica='{{strToCode actor.name}}'] .ficha-perfil-corpo-img").contextmenu(function(){
+                    editarFichaContagem{{strToCode actor.name}} += 1;
+
+                    if(editarFichaContagem{{strToCode actor.name}} > 5) {
+                        $("[fichaunica='{{strToCode actor.name}}'] .jsEditavelChangeLi").show();
+                    }
+                });
+
+
+                
+
+                    
+
+                    
+            });
+
 
             
 
