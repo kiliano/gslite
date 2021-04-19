@@ -61,7 +61,9 @@
 						<div class="ficha-info">
                             <input name="data.idade" class="ficha-3algarismos" type="text" value="{{data.idade}}" placeholder=""/>
                             
-                             anos • <span>{{data.raca}}</span> • 
+                             anos • 
+                             <input name="data.raca" class="" style="width: 65px" type="text" value="{{data.raca}}" placeholder=""/>
+                              • 
                              <input name="data.altura" type="text" value="{{data.altura}}" placeholder=""/>m • 
                              <input name="data.peso" class="ficha-3algarismos" type="text" value="{{data.peso}}" placeholder=""/>kg • 
                             
@@ -99,9 +101,6 @@
                                     <a href="javascript:void(0)">OK</a>
                                 </div>
 							</div>
-                            <input type="text" name="data.reflexos.graduacao" value="{{data.reflexos.graduacao}}">
-                            <input type="text" name="data.inteligencia.graduacao" value="{{data.inteligencia.graduacao}}">
-                            <input type="text" name="data.empatia.graduacao" value="{{data.empatia.graduacao}}">
 
 							<div class="ficha-atributos">
 								<div class="ficha-atributos-item">
@@ -121,7 +120,7 @@
 										</span>
 									</a>
 
-									<a href="javascript:void(0)" class="ficha-atributos-item-txt ficha-reflexos">
+									<a href="javascript:void(0)" class="ficha-atributos-item-txt ficha-reflexos" abrirmodalcontext="reflexos">
 
 										<span class="ficha-flex">
 											<span class="ficha-txt">
@@ -138,7 +137,7 @@
 										</span>
 									</a>
 
-									<a href="javascript:void(0)" class="ficha-atributos-item-txt ficha-inteligencia">
+									<a href="javascript:void(0)" class="ficha-atributos-item-txt ficha-inteligencia" abrirmodalcontext="inteligencia">
 										<span class="ficha-flex">
 											<span class="ficha-txt">
 												inteligência
@@ -154,7 +153,7 @@
 										</span>
 									</a>
 
-									<a href="javascript:void(0)" class="ficha-atributos-item-txt ficha-empatia">
+									<a href="javascript:void(0)" class="ficha-atributos-item-txt ficha-empatia" abrirmodalcontext="empatia">
 										<span class="ficha-flex">
 											<span class="ficha-txt">
 												empatia
@@ -515,7 +514,7 @@
             <!-- MODAIs -->
 			<div class="ficha-modais">
 
-				<!-- MODAL -->
+				<!-- MODAL FORÇA -->
 				<div class="ficha-modal-atributos ficha-modal" modalId="forca">
 					<div class="ficha-modal-center">
 						<div class="ficha-modal-conteudo">
@@ -606,7 +605,289 @@
 						<div class="ficha-modal-overlay" fecharModal=""></div>
 					</div>
 				</div>
-				<!-- /MODAL -->
+				<!-- /MODAL FORÇA-->
+
+
+                <!-- MODAL REFLEXOS -->
+				<div class="ficha-modal-atributos ficha-modal" modalId="reflexos">
+					<div class="ficha-modal-center">
+						<div class="ficha-modal-conteudo">
+							<div class="ficha-modal-titulo">
+								<span class="gradiente-txt">
+									reflexos
+								</span>
+
+								<div class="ficha-xp">
+									<span class="jsXpAtributosFake"></span> xp atr
+								</div>
+							</div>
+
+							<div class="ficha-modal-txt">
+								<div class="ficha-modal-tabela">
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<strong>soma</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>graduação</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>racial</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>bônus</strong>
+										</div>
+									</div>
+
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<span class="gradiente-txt">
+												{{somaAtt data.reflexos.graduacao data.reflexos.racial data.reflexos.bonus}}
+											</span>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<div class="numero-box">
+
+                                                <div class="ficha-atributo-numero">{{data.reflexos.graduacao}}</div>
+
+												<input name="data.reflexos.graduacao" class="numero-input ficha-atributo-numero" type="hidden" value="{{data.reflexos.graduacao}}">
+                                                
+
+                                                
+												<a href="javascript:void(0)" class="numero-conta-menos jsContaMenosAtributo">
+													<span class="numero-conta-sinal">
+														-
+													</span>
+													<span class="numero-tooltip"></span>
+												</a>
+
+
+												<a href="javascript:void(0)" class="numero-conta-mais jsContaMaisAtributo" valorProximo="0">
+													<span class="numero-conta-sinal">
+														+
+													</span>
+													<span class="numero-tooltip"></span>
+												</a>
+
+
+
+											</div>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<input name="data.reflexos.racial" class="ficha-atributo-numero jsNumeroConta" type="text" value="{{data.reflexos.racial}}">
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<input name="data.reflexos.bonus" class="ficha-atributo-numero jsNumeroConta" type="text" value="{{data.reflexos.bonus}}">
+										</div>
+									</div>
+								</div>
+								
+								
+							</div>
+							
+
+
+							<a href="javascript:void(0)" class="ficha-modal-fechar" fecharModal="">x</a>
+						</div>
+
+						<div class="ficha-modal-overlay" fecharModal=""></div>
+					</div>
+				</div>
+				<!-- /MODAL REFLEXOS-->
+
+
+                <!-- MODAL inteligencia -->
+				<div class="ficha-modal-atributos ficha-modal" modalId="inteligencia">
+					<div class="ficha-modal-center">
+						<div class="ficha-modal-conteudo">
+							<div class="ficha-modal-titulo">
+								<span class="gradiente-txt">
+									inteligência
+								</span>
+
+								<div class="ficha-xp">
+									<span class="jsXpAtributosFake"></span> xp atr
+								</div>
+							</div>
+
+							<div class="ficha-modal-txt">
+								<div class="ficha-modal-tabela">
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<strong>soma</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>graduação</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>racial</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>bônus</strong>
+										</div>
+									</div>
+
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<span class="gradiente-txt">
+												{{somaAtt data.inteligencia.graduacao data.inteligencia.racial data.inteligencia.bonus}}
+											</span>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<div class="numero-box">
+
+                                                <div class="ficha-atributo-numero">{{data.inteligencia.graduacao}}</div>
+
+												<input name="data.inteligencia.graduacao" class="numero-input ficha-atributo-numero" type="hidden" value="{{data.inteligencia.graduacao}}">
+                                                
+
+                                                
+												<a href="javascript:void(0)" class="numero-conta-menos jsContaMenosAtributo">
+													<span class="numero-conta-sinal">
+														-
+													</span>
+													<span class="numero-tooltip"></span>
+												</a>
+
+
+												<a href="javascript:void(0)" class="numero-conta-mais jsContaMaisAtributo" valorProximo="0">
+													<span class="numero-conta-sinal">
+														+
+													</span>
+													<span class="numero-tooltip"></span>
+												</a>
+
+
+
+											</div>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<input name="data.inteligencia.racial" class="ficha-atributo-numero jsNumeroConta" type="text" value="{{data.inteligencia.racial}}">
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<input name="data.inteligencia.bonus" class="ficha-atributo-numero jsNumeroConta" type="text" value="{{data.inteligencia.bonus}}">
+										</div>
+									</div>
+								</div>
+								
+								
+							</div>
+							
+
+
+							<a href="javascript:void(0)" class="ficha-modal-fechar" fecharModal="">x</a>
+						</div>
+
+						<div class="ficha-modal-overlay" fecharModal=""></div>
+					</div>
+				</div>
+				<!-- /MODAL inteligencia-->
+
+
+                <!-- MODAL empatia -->
+				<div class="ficha-modal-atributos ficha-modal" modalId="empatia">
+					<div class="ficha-modal-center">
+						<div class="ficha-modal-conteudo">
+							<div class="ficha-modal-titulo">
+								<span class="gradiente-txt">
+									empatia
+								</span>
+
+								<div class="ficha-xp">
+									<span class="jsXpAtributosFake"></span> xp atr
+								</div>
+							</div>
+
+							<div class="ficha-modal-txt">
+								<div class="ficha-modal-tabela">
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<strong>soma</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>graduação</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>racial</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>bônus</strong>
+										</div>
+									</div>
+
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<span class="gradiente-txt">
+												{{somaAtt data.empatia.graduacao data.empatia.racial data.empatia.bonus}}
+											</span>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<div class="numero-box">
+
+                                                <div class="ficha-atributo-numero">{{data.empatia.graduacao}}</div>
+
+												<input name="data.empatia.graduacao" class="numero-input ficha-atributo-numero" type="hidden" value="{{data.empatia.graduacao}}">
+                                                
+
+                                                
+												<a href="javascript:void(0)" class="numero-conta-menos jsContaMenosAtributo">
+													<span class="numero-conta-sinal">
+														-
+													</span>
+													<span class="numero-tooltip"></span>
+												</a>
+
+
+												<a href="javascript:void(0)" class="numero-conta-mais jsContaMaisAtributo" valorProximo="0">
+													<span class="numero-conta-sinal">
+														+
+													</span>
+													<span class="numero-tooltip"></span>
+												</a>
+
+
+
+											</div>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<input name="data.empatia.racial" class="ficha-atributo-numero jsNumeroConta" type="text" value="{{data.empatia.racial}}">
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<input name="data.empatia.bonus" class="ficha-atributo-numero jsNumeroConta" type="text" value="{{data.empatia.bonus}}">
+										</div>
+									</div>
+								</div>
+								
+								
+							</div>
+							
+
+
+							<a href="javascript:void(0)" class="ficha-modal-fechar" fecharModal="">x</a>
+						</div>
+
+						<div class="ficha-modal-overlay" fecharModal=""></div>
+					</div>
+				</div>
+				<!-- /MODAL empatia-->
 			</div>
 			<!-- MODAIS -->
 
@@ -774,13 +1055,6 @@
                         $("[fichaunica='{{strToCode actor.name}}'] .jsEditavelChangeLi").show();
                     }
                 });
-
-
-                
-
-                    
-
-                    
             });
 
 

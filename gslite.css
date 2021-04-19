@@ -3900,4 +3900,19 @@ input[disabled]:hover {
   [modalAberto="forca"] [modalId="forca"] .ficha-modal-conteudo {
     display: block; }
 
+[modalAberto="reflexos"] [modalId="reflexos"] {
+  display: block; }
+  [modalAberto="reflexos"] [modalId="reflexos"] .ficha-modal-conteudo {
+    display: block; }
+
+[modalAberto="inteligencia"] [modalId="inteligencia"] {
+  display: block; }
+  [modalAberto="inteligencia"] [modalId="inteligencia"] .ficha-modal-conteudo {
+    display: block; }
+
+[modalAberto="empatia"] [modalId="empatia"] {
+  display: block; }
+  [modalAberto="empatia"] [modalId="empatia"] .ficha-modal-conteudo {
+    display: block; }
+
 /*# sourceMappingURL=gslite.css.map */

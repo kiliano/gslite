@@ -57,3 +57,31 @@
         }
     }
 }
+
+[modalAberto="reflexos"] {
+    [modalId="reflexos"] {
+        display: block;
+        .ficha-modal-conteudo {
+            display: block;
+        }
+    }
+}
+
+[modalAberto="inteligencia"] {
+    [modalId="inteligencia"] {
+        display: block;
+        .ficha-modal-conteudo {
+            display: block;
+        }
+    }
+}
+
+
+[modalAberto="empatia"] {
+    [modalId="empatia"] {
+        display: block;
+        .ficha-modal-conteudo {
+            display: block;
+        }
+    }
+}
