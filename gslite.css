@@ -2789,14 +2789,6 @@ select, option, input, textarea {
   -webkit-animation-duration: 3s;
   animation-duration: 3s; }
 
-@media (print), (prefers-reduced-motion: reduce) {
-  .animated {
-    -webkit-animation-duration: 1ms !important;
-    animation-duration: 1ms !important;
-    -webkit-transition-duration: 1ms !important;
-    transition-duration: 1ms !important;
-    -webkit-animation-iteration-count: 1 !important;
-    animation-iteration-count: 1 !important; } }
 /*
 ----------------------------------------
 Welcome to Rly Simple Loading CSS
@@ -2931,6 +2923,169 @@ input:not([type="submit"]):-ms-input-placeholder {
   color: #cfcccc; }
 input:not([type="submit"]):-moz-placeholder {
   color: #cfcccc; }
+
+.ficha-modal {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  backdrop-filter: blur(5px); }
+
+.ficha-modal-center {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.ficha-modal-conteudo {
+  background: #1a1926;
+  padding: 10px;
+  max-width: 90%;
+  position: relative;
+  z-index: 10;
+  border-radius: 10px;
+  min-width: 200px;
+  box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.2);
+  display: none; }
+
+.ficha-modal-titulo {
+  font-size: 18px;
+  font-weight: 900;
+  border-bottom: 1px solid #22212d;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  position: relative; }
+
+.ficha-modal-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  opacity: 0.2;
+  background: #fbe344;
+  background: -moz-linear-gradient(135deg, #fbe344 0%, #ee63a2 100%);
+  background: -webkit-linear-gradient(135deg, #fbe344 0%, #ee63a2 100%);
+  background: linear-gradient(135deg, #fbe344 0%, #ee63a2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fbe344",endColorstr="#ee63a2",GradientType=1); }
+
+.ficha-modal-tabela {
+  width: 100%; }
+
+.ficha-modal-tabela-linha {
+  width: 100%;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap; }
+  .ficha-modal-tabela-linha:last-child {
+    border-bottom: 1px solid #2b2a33; }
+
+.ficha-modal-tabela-cel {
+  padding: 5px;
+  text-align: center;
+  border-top: 1px solid #2b2a33;
+  border-left: 1px solid #2b2a33;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  width: 0; }
+  .ficha-modal-tabela-cel:last-child {
+    border-right: 1px solid #2b2a33; }
+
+a.ficha-modal-fechar {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ee63a2;
+  display: block;
+  width: 21px;
+  height: 21px;
+  border-radius: 15px;
+  font-weight: 900;
+  color: #111;
+  text-align: center;
+  font-size: 14px;
+  z-index: 10; }
+  a.ficha-modal-fechar:hover {
+    background: #e93587; }
+
+.numero-tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  font-size: 12px;
+  z-index: 12;
+  bottom: 100%;
+  opacity: 0;
+  visibility: hidden;
+  left: -35px;
+  width: 90px;
+  border-radius: 5px;
+  padding: 8px 0;
+  text-align: center;
+  transition: 300ms ease all; }
+
+.numero-box {
+  position: relative; }
+
+a.numero-conta-menos, a.numero-conta-mais {
+  transition: 300ms ease opacity;
+  position: absolute;
+  top: 7px;
+  background: #fad94c;
+  font-weight: bold;
+  color: #111 !important;
+  font-weight: 900 !important;
+  width: 16px;
+  height: 16px;
+  line-height: 17px;
+  border-radius: 10px;
+  text-align: center;
+  opacity: 0.4;
+  z-index: 10;
+  display: block; }
+  a.numero-conta-menos:hover, a.numero-conta-mais:hover {
+    opacity: 1; }
+    a.numero-conta-menos:hover .numero-tooltip, a.numero-conta-mais:hover .numero-tooltip {
+      opacity: 1;
+      visibility: visible;
+      bottom: 140%; }
+
+.numero-conta-menos {
+  left: 0; }
+
+.numero-conta-mais {
+  right: 0;
+  padding-left: 1px; }
 
 button {
   color: #222; }
@@ -3267,7 +3422,18 @@ body {
   height: 165px;
   padding: 0;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  display: block; }
+  .ficha-perfil-corpo-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    opacity: 0; }
+  .ficha-perfil-corpo-img:hover {
+    cursor: pointer; }
 
 .ficha-perfil-corpo-blur {
   background-repeat: no-repeat;
@@ -3561,6 +3727,104 @@ body {
     width: 20px;
     text-align: right; }
 
+.ficha-mobile .ficha-sidebar {
+  width: 100%;
+  height: auto;
+  text-align: center; }
+  .ficha-mobile .ficha-sidebar ul {
+    text-align: center; }
+    .ficha-mobile .ficha-sidebar ul li {
+      text-align: center;
+      display: inline-block; }
+  .ficha-mobile .ficha-sidebar .ficha-sidebar-menu {
+    font-size: 12px; }
+    .ficha-mobile .ficha-sidebar .ficha-sidebar-menu a {
+      padding: 0 5px; }
+      .ficha-mobile .ficha-sidebar .ficha-sidebar-menu a:before {
+        display: none; }
+.ficha-mobile .ficha-perfil-dados {
+  width: 100%; }
+.ficha-mobile .ficha-conteudo {
+  width: 100%; }
+.ficha-mobile .ficha-perfil-dados .ficha-nome input {
+  font-size: 14px; }
+.ficha-mobile .ficha-bloco-nome .ficha-jogador, .ficha-mobile .ficha-bloco-nome .ficha-info {
+  font-size: 11px; }
+.ficha-mobile .ficha-perfil-corpo {
+  padding-left: 0;
+  width: 100%; }
+.ficha-mobile .ficha-atributos-item-txt {
+  width: 100%; }
+.ficha-mobile .ficha-corpo {
+  width: 180px;
+  margin: 0 auto; }
+.ficha-mobile .ficha-perfil-pericias:after, .ficha-mobile .ficha-perfil-pericias:before {
+  display: none; }
+.ficha-mobile .ficha-perfil-pericias .ficha-pericias {
+  min-height: none; }
+.ficha-mobile .ficha-perfil-pericias .ficha-pericia-item {
+  width: 100%; }
+
+.ficha-modal-atributos strong {
+  font-weight: 400;
+  font-size: 10px; }
+.ficha-modal-atributos .ficha-modal-conteudo {
+  min-width: 400px; }
+.ficha-modal-atributos input {
+  border: 1px solid transparent;
+  border-radius: 4px; }
+  .ficha-modal-atributos input:hover {
+    border: 1px solid #6b6977; }
+  .ficha-modal-atributos input[disabled]:hover {
+    border-color: transparent; }
+.ficha-modal-atributos .ficha-modal-tabela {
+  margin-top: 10px; }
+.ficha-modal-atributos .ficha-modal-tabela-cel .gradiente-txt {
+  font-size: 20px;
+  font-weight: 700; }
+.ficha-modal-atributos .ficha-atributo-numero {
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  font-size: 16px; }
+.ficha-modal-atributos .ficha-xp {
+  opacity: 0.7;
+  color: #676671;
+  border: 1px solid #676671;
+  position: absolute;
+  text-align: right;
+  top: 3px;
+  right: 10px;
+  font-size: 11px;
+  border-radius: 4px;
+  padding: 2px 5px;
+  line-height: 1; }
+
+.ficha-perfil-atributos .ficha-xp .minimodalAddXp, .ficha-perfil-pericias .ficha-xp .minimodalAddXp {
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.95);
+  padding: 7px 10px;
+  position: absolute;
+  bottom: 120%;
+  right: 0;
+  border-radius: 5px;
+  min-width: 220px;
+  display: none; }
+  .ficha-perfil-atributos .ficha-xp .minimodalAddXp > span, .ficha-perfil-pericias .ficha-xp .minimodalAddXp > span {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px; }
+  .ficha-perfil-atributos .ficha-xp .minimodalAddXp > input, .ficha-perfil-pericias .ficha-xp .minimodalAddXp > input {
+    display: inline-block;
+    border: 1px solid #fff !important;
+    color: #fff;
+    text-align: center;
+    width: 30px; }
+  .ficha-perfil-atributos .ficha-xp .minimodalAddXp > a, .ficha-perfil-pericias .ficha-xp .minimodalAddXp > a {
+    display: inline-block;
+    padding: 3px;
+    background: #333; }
+
 .editor-content {
   min-height: 100px; }
 
@@ -3568,6 +3832,7 @@ body {
   padding: 1px;
   background: #22212d;
   border-radius: 10px;
+  position: relative;
   background: #fbe344;
   background: -moz-linear-gradient(135deg, #fbe344 0%, #ee63a2 100%);
   background: -webkit-linear-gradient(135deg, #fbe344 0%, #ee63a2 100%);
@@ -3589,5 +3854,47 @@ body {
     color: #333; }
   .window-app .window-content p, .window-app .window-content form .notes, .window-app .window-content form .hint {
     color: #999; }
+
+input[disabled]:hover {
+  cursor: not-allowed;
+  border-color: transparent; }
+
+[fichaId] {
+  display: none; }
+
+[modalId] {
+  display: none; }
+  [modalId] .ficha-modal-conteudo {
+    display: none; }
+
+[abaAberta="perfil"] [fichaId="perfil"] {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start; }
+[abaAberta="perfil"] .ficha-sidebar-menu a[abrirAba="perfil"] {
+  opacity: 1; }
+  [abaAberta="perfil"] .ficha-sidebar-menu a[abrirAba="perfil"]:before {
+    opacity: 1;
+    width: 100%; }
+
+[modalAberto="forca"] [modalId="forca"] {
+  display: block; }
+  [modalAberto="forca"] [modalId="forca"] .ficha-modal-conteudo {
+    display: block; }
 
 /*# sourceMappingURL=gslite.css.map */

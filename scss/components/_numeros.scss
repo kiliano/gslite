@@ -1,0 +1,61 @@
+// Numeros
+.numero-tooltip {
+    // display: none;
+    position: absolute;
+    background: rgba(0,0,0,0.9);
+    color: #fff;
+    font-size: 12px;
+    
+    z-index: 12;
+    bottom: 100%;
+    opacity: 0;
+    visibility: hidden;
+    left: -35px;
+    width: 90px;
+    border-radius: 5px;
+    padding: 8px 0;
+    text-align: center;
+    transition: 300ms ease all;
+    
+}
+
+
+.numero-box {
+    position: relative;
+}
+
+
+a.numero-conta-menos, a.numero-conta-mais {
+    transition: 300ms ease opacity;
+    position: absolute;
+    top: 7px;
+    background: #fad94c;
+    font-weight: bold;
+    color: #111 !important;
+    font-weight: 900 !important; 
+    width: 16px;
+    height: 16px;
+    line-height: 17px;
+    border-radius: 10px;
+    text-align: center;
+    opacity: 0.4;
+    z-index: 10;
+    display: block;
+    &:hover {
+        opacity: 1;
+        .numero-tooltip {
+            opacity: 1;
+            visibility: visible;
+            bottom: 140%;
+        }
+    }
+}
+
+.numero-conta-menos {
+    left: 0;
+}
+
+.numero-conta-mais {
+    right: 0;
+    padding-left: 1px;
+}

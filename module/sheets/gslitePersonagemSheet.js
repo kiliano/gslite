@@ -12,6 +12,7 @@ export default class gslitePersonagemSheet extends ActorSheet {
 
     getData() {
         const data = super.getData();
+        // console.log(data);
         data.config = CONFIG.gslite;
         data.defeitos = data.items.filter(function(item){
             return item.type === "defeito";
@@ -19,4 +20,5 @@ export default class gslitePersonagemSheet extends ActorSheet {
 
         return data;
     }
+
 }

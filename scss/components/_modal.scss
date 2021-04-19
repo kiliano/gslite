@@ -1,0 +1,136 @@
+// .ficha-box {
+//     position: relative;
+//     overflow: hidden;
+// }
+.ficha-modal {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    // background: red;
+    backdrop-filter: blur(5px);
+}
+
+.ficha-modal-center {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.ficha-modal-conteudo {
+    background: #1a1926;
+    padding: 10px;
+    max-width: 90%;
+    position: relative;
+    z-index: 10;
+    border-radius: 10px;
+    min-width: 200px;
+    box-shadow: -2px 2px 2px rgba(0,0,0,0.2);
+    display: none;
+}
+
+.ficha-modal-titulo {
+    font-size: 18px;
+    font-weight: 900;
+    border-bottom: 1px solid #22212d;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    
+}
+
+.ficha-modal-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    // background: rgba(0,0,0,0.2);
+    opacity: 0.2;
+    background: rgb(251,227,68);
+	background: -moz-linear-gradient(135deg, rgba(251,227,68,1) 0%, rgba(238,99,162,1) 100%);
+	background: -webkit-linear-gradient(135deg, rgba(251,227,68,1) 0%, rgba(238,99,162,1) 100%);
+	background: linear-gradient(135deg, rgba(251,227,68,1) 0%, rgba(238,99,162,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fbe344",endColorstr="#ee63a2",GradientType=1);
+}
+
+
+.ficha-modal-tabela {
+    width: 100%;
+}
+
+.ficha-modal-tabela-linha {
+    width: 100%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    // flex-grow: 1;
+    &:last-child {
+        border-bottom: 1px solid #2b2a33;
+    }
+}
+
+
+.ficha-modal-tabela-cel {
+    padding: 5px;
+    text-align: center;
+    // flex-grow: 1;
+    border-top: 1px solid #2b2a33;
+    border-left: 1px solid #2b2a33;
+    flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+    width: 0;
+    &:last-child {
+        border-right: 1px solid #2b2a33;
+    }
+}
+
+a.ficha-modal-fechar {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ee63a2;
+    display: block;
+    width: 21px;
+    height: 21px;
+    border-radius: 15px;
+    font-weight: 900;
+    color: #111;
+    text-align: center;
+    font-size: 14px;
+    z-index: 10;
+    &:hover {
+        background: darken(#ee63a2,10%);
+    }
+}

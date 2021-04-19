@@ -7,6 +7,7 @@
 	padding: 1px;
 	background: #22212d;
 	border-radius: 10px;
+	position: relative;
 
 	background: rgb(251,227,68);
 	background: -moz-linear-gradient(135deg, rgba(251,227,68,1) 0%, rgba(238,99,162,1) 100%);
@@ -40,5 +41,14 @@
 
     p, form .notes, form .hint {
     	color: #999;
+    }
+}
+
+input {
+    &[disabled] {
+        &:hover {
+            cursor: not-allowed;
+            border-color: transparent;
+        }
     }
 }

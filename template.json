@@ -8,20 +8,24 @@
         "templates" : {
             "Tatributos" : {
                 "forca" : {
-                    "valor" : 3,
-                    "bonus" : 0
+                    "graduacao" : 3,
+                    "bonus" : 0,
+                    "racial" : 0
                 },
                 "reflexos" : {
-                    "valor" : 3,
-                    "bonus" : 0
+                    "graduacao" : 3,
+                    "bonus" : 0,
+                    "racial" : 0
                 },
                 "inteligencia" : {
-                    "valor" : 3,
-                    "bonus" : 0
+                    "graduacao" : 3,
+                    "bonus" : 0,
+                    "racial" : 0
                 },
                 "empatia" : {
-                    "valor" : 3,
-                    "bonus" : 0
+                    "graduacao" : 3,
+                    "bonus" : 0,
+                    "racial" : 0
                 },
 
                 "xp-atributos" : 0
@@ -29,11 +33,10 @@
 
             "Tdescricao" : {
                 "tamanho" : "4",
-                "raca": "",
-                "altura-peso": "",
-                "idade" : "18",
-                "genero" : "",
-                "aparencia-resumo": ""
+                "raca": "humano",
+                "altura" : "1.75",
+                "peso" : "60",
+                "idade" : "18"
             },
             
             "Tsaude" : {
@@ -91,7 +94,9 @@
 
         "personagem" :{
             "templates" : ["Tatributos", "Tdescricao", "Tsaude"],
-            "jogador" : ""
+            "jogador" : "NPC",
+            "abaAberta" : "perfil",
+            "modalAberto" : "modaloff"
 
         },
 
