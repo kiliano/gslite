@@ -85,3 +85,22 @@
         }
     }
 }
+
+
+[modalAberto="pvmax"] {
+    [modalId="pvmax"] {
+        display: block;
+        .ficha-modal-conteudo {
+            display: block;
+        }
+    }
+}
+
+[modalAberto="fadigamax"] {
+    [modalId="fadigamax"] {
+        display: block;
+        .ficha-modal-conteudo {
+            display: block;
+        }
+    }
+}

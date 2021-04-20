@@ -406,22 +406,26 @@
 
 							<div class="ficha-barra-box">
 								<div class="ficha-barra-numero">
-									<input type="text" value="5" class="ficha-barra-numero-input">
+									 <input type="text" name="data.pv.value" value="{{data.pv.value}}" class="ficha-barra-numero-input jsNumeroConta">
+									 <input type="hidden" value="{{somaPvMax data.forca.graduacao data.forca.racial data.forca.bonus data.tamanho data.pv.max-bonus}}" class="jsPvMaximo">
+									 <input type="hidden" name="data.pv.max" value="{{data.pv.max}}">
 								</div>
 
 								<div class="ficha-barra-totais">
-									<div class="ficha-barra-fundo">
-										<div class="ficha-barra-barra-terco"></div>
-										<div class="ficha-barra-barra ficha-barra-barra-vida" style="width: 100%"></div>
+									<div class="ficha-barra-fundo" style="height: 10px;">
+										<div class="ficha-barra-barra-terco" style="">{{metade data.pv.max}}</div>
+										<div class="ficha-barra-barra ficha-barra-barra-vida" style="width: {{porcentagem data.pv.value data.pv.max}};"></div>
 									</div>
-									<div class="ficha-barra-numeros">
+									<a href="javascript:void(0)" class="ficha-barra-numeros" abrirmodalcontext="pvmax">
 										<div class="ficha-barra-max">
-											/9
+											/{{data.pv.max}}
 										</div>
 										<div class="ficha-barra-status">
-											normal
+											{{statusCalc data.pv.value data.pv.max}}
+											<input type="hidden" value="{{statusCalc data.pv.value data.pv.max}}" class="jsPvStatus">
+											<input type="hidden" name="data.pv.status" value="{{data.pv.status}}">
 										</div>
-									</div>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -436,22 +440,26 @@
 
 							<div class="ficha-barra-box">
 								<div class="ficha-barra-numero">
-									<input type="text" value="10" class="ficha-barra-numero-input">
+									<input type="text" name="data.fadiga.value" value="{{data.fadiga.value}}" class="ficha-barra-numero-input jsNumeroConta">
+									 <input type="hidden" value="{{somaFadigaMax data.forca.graduacao data.forca.racial data.forca.bonus data.reflexos.graduacao data.reflexos.racial data.reflexos.bonus data.tamanho data.fadiga.max-bonus}}" class="jsFadigaMaxima">
+									 <input type="hidden" name="data.fadiga.max" value="{{data.fadiga.max}}">
 								</div>
 
 								<div class="ficha-barra-totais">
 									<div class="ficha-barra-fundo">
-										<div class="ficha-barra-barra-terco"></div>
-										<div class="ficha-barra-barra ficha-barra-barra-fadiga" style="width: 100%"></div>
+										<div class="ficha-barra-barra-terco">{{metade data.fadiga.max}}</div>
+										<div class="ficha-barra-barra ficha-barra-barra-fadiga" style="width: {{porcentagem data.fadiga.value data.fadiga.max}};"></div>
 									</div>
-									<div class="ficha-barra-numeros">
+									<a href="javascript:void(0)" class="ficha-barra-numeros" abrirmodalcontext="fadigamax">
 										<div class="ficha-barra-max">
-											/11
+											/{{data.fadiga.max}}
 										</div>
 										<div class="ficha-barra-status">
-											<strong class="positivo">disposto</strong>
+											{{statusCalc data.fadiga.value data.fadiga.max}}
+											<input type="hidden" value="{{statusCalc data.fadiga.value data.fadiga.max}}" class="jsFadigaStatus">
+											<input type="hidden" name="data.fadiga.status" value="{{data.fadiga.status}}">
 										</div>
-									</div>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -959,6 +967,141 @@
 					</div>
 				</div>
 				<!-- /MODAL empatia-->
+
+
+				<!-- MODAL pvMax -->
+				<div class="ficha-modal-atributos ficha-modal" modalId="pvmax">
+					<div class="ficha-modal-center">
+						<div class="ficha-modal-conteudo">
+							<div class="ficha-modal-titulo">
+								<span class="gradiente-txt">
+									pontos de vida
+								</span>
+							</div>
+
+							<div class="ficha-modal-txt">
+								<div class="ficha-modal-tabela">
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<strong>soma</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>força x 2</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>Tam. {{txtTamanho data.tamanho}}</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>bônus</strong>
+										</div>
+									</div>
+
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<span class="gradiente-txt">
+												{{somaPvMax data.forca.graduacao data.forca.racial data.forca.bonus data.tamanho data.pv.max-bonus}}
+											</span>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<div class="ficha-atributo-numero">{{somaAtt data.forca.graduacao data.forca.racial data.forca.bonus}} * 2</div>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<div class="ficha-atributo-numero">
+												{{calcTamanho data.tamanho}}
+											</div>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<input name="data.pv.max-bonus" class="ficha-atributo-numero jsNumeroConta" type="text" value="{{data.pv.max-bonus}}">
+										</div>
+									</div>
+								</div>
+								
+								
+							</div>
+							
+
+
+							<a href="javascript:void(0)" class="ficha-modal-fechar" fecharModal="">x</a>
+						</div>
+
+						<div class="ficha-modal-overlay" fecharModal=""></div>
+					</div>
+				</div>
+				<!-- /MODAL pvMax-->
+
+
+				<!-- MODAL fadigaMax -->
+				<div class="ficha-modal-atributos ficha-modal" modalId="fadigamax">
+					<div class="ficha-modal-center">
+						<div class="ficha-modal-conteudo">
+							<div class="ficha-modal-titulo">
+								<span class="gradiente-txt">
+									pontos de vida
+								</span>
+							</div>
+
+							<div class="ficha-modal-txt">
+								<div class="ficha-modal-tabela">
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<strong>soma</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>força + reflexos</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>Tam. {{txtTamanho data.tamanho}}</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>bônus</strong>
+										</div>
+									</div>
+
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<span class="gradiente-txt">
+												{{somaFadigaMax data.forca.graduacao data.forca.racial data.forca.bonus data.reflexos.graduacao data.reflexos.racial data.reflexos.bonus data.tamanho data.fadiga.max-bonus}}
+											</span>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<div class="ficha-atributo-numero">{{somaAtt data.forca.graduacao data.forca.racial data.forca.bonus}} + {{somaAtt data.reflexos.graduacao data.reflexos.racial data.reflexos.bonus}}</div>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<div class="ficha-atributo-numero">
+												{{calcTamanho data.tamanho}}
+											</div>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<input name="data.fadiga.max-bonus" class="ficha-atributo-numero jsNumeroConta" type="text" value="{{data.fadiga.max-bonus}}">
+										</div>
+									</div>
+								</div>
+								
+								
+							</div>
+							
+
+
+							<a href="javascript:void(0)" class="ficha-modal-fechar" fecharModal="">x</a>
+						</div>
+
+						<div class="ficha-modal-overlay" fecharModal=""></div>
+					</div>
+				</div>
+				<!-- /MODAL fadigaMax-->
+
 			</div>
 			<!-- MODAIS -->
 
@@ -1132,14 +1275,37 @@
                 $(this).find(".ficha-selectfake-box").fadeToggle();
             });
 
+			var pvMaxCalculado = $('[fichaunica="{{strToCode actor.name}}"] .jsPvMaximo').val();
+			var pvMaxFicha = $('[fichaunica="{{strToCode actor.name}}"] [name="data.pv.max"]').val();
+			if(pvMaxCalculado != pvMaxFicha) {
+				$('[fichaunica="{{strToCode actor.name}}"] [name="data.pv.max"]').val(pvMaxCalculado);
+			}
 
-            
+			var statusPv = $('[fichaunica="{{strToCode actor.name}}"] .jsPvStatus').val();
+			var statusPvReal = $('[fichaunica="{{strToCode actor.name}}"] [name="data.pv.status"]').val();
 
-            
+			if(statusPv != statusPvReal) {
+				$('[fichaunica="{{strToCode actor.name}}"] [name="data.pv.status"]').val(statusPv);
+			}
+
+			var fadigaMaxCalculado = $('[fichaunica="{{strToCode actor.name}}"] .jsFadigaMaxima').val();
+			var fadigaMaxFicha = $('[fichaunica="{{strToCode actor.name}}"] [name="data.fadiga.max"]').val();
+			if(fadigaMaxCalculado != fadigaMaxFicha) {
+				$('[fichaunica="{{strToCode actor.name}}"] [name="data.fadiga.max"]').val(fadigaMaxCalculado);
+			}
+
+			var statusFadiga = $('[fichaunica="{{strToCode actor.name}}"] .jsFadigaStatus').val();
+			var statusFadigaReal = $('[fichaunica="{{strToCode actor.name}}"] [name="data.fadiga.status"]').val();
+
+			if(statusPv != statusPvReal) {
+				$('[fichaunica="{{strToCode actor.name}}"] [name="data.fadiga.status"]').val(statusFadiga);
+			}
 
 
-            console.log("fecharModal abrirModal");
-        },500);
+
+			
+
+        },300);
     </script>
 
     

@@ -3630,7 +3630,7 @@ body {
       color: #44fbce; }
 
 .ficha-barra-fundo {
-  height: 5px;
+  height: 10px;
   background: #100f1a;
   width: 100%;
   margin-bottom: 5px;
@@ -3639,7 +3639,7 @@ body {
 
 .ficha-barra-barra {
   background: #fad94c;
-  height: 5px; }
+  height: 10px; }
   .ficha-barra-barra.ficha-barra-barra-vida {
     background: #fb4444;
     background: -moz-linear-gradient(135deg, #fb4444 0%, #ee63a2 100%);
@@ -3654,13 +3654,17 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#44fbce",endColorstr="#91e256",GradientType=1); }
 
 .ficha-barra-barra-terco {
-  width: 33.3333%;
-  height: 5px;
+  width: 50%;
+  height: 10px;
   background: rgba(0, 0, 0, 0.2);
   border-right: 1px solid rgba(0, 0, 0, 0.3);
   position: absolute;
   left: 0;
-  top: 0; }
+  top: 0;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 10px;
+  font-weight: 900;
+  text-align: right; }
 
 .ficha-perfil-corpo-vida {
   padding-top: 15px;
@@ -3927,6 +3931,9 @@ input[disabled]:hover {
   cursor: not-allowed;
   border-color: transparent; }
 
+[abrirmodalcontext]:hover {
+  cursor: pointer; }
+
 [fichaId] {
   display: none; }
 
@@ -3978,6 +3985,16 @@ input[disabled]:hover {
 [modalAberto="empatia"] [modalId="empatia"] {
   display: block; }
   [modalAberto="empatia"] [modalId="empatia"] .ficha-modal-conteudo {
+    display: block; }
+
+[modalAberto="pvmax"] [modalId="pvmax"] {
+  display: block; }
+  [modalAberto="pvmax"] [modalId="pvmax"] .ficha-modal-conteudo {
+    display: block; }
+
+[modalAberto="fadigamax"] [modalId="fadigamax"] {
+  display: block; }
+  [modalAberto="fadigamax"] [modalId="fadigamax"] .ficha-modal-conteudo {
     display: block; }
 
 /*# sourceMappingURL=gslite.css.map */

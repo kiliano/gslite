@@ -60,6 +60,95 @@ Hooks.once("init", function(){
         return (parseInt(a)+parseInt(b)+parseInt(c)).toString();
     });
 
+    Handlebars.registerHelper('somaPvMax', function (forcaG,forcaR,forcaB,tamanho,bonus) {
+        // Tam. ínfimo (0)
+        // Tam. Mínimo (1)
+        // Tam. Miúdo (2)
+        // Tam. Pequeno (3)
+        // Tam. Médio (4)
+        // Tam. Grande (5)
+        // Tam. Enorme (6)
+        // Tam. Imenso (7)
+        // Tam. Colossal (8)
+        var somaForca = parseInt(forcaG)+parseInt(forcaR)+parseInt(forcaB);
+        somaForca = somaForca*2;
+        
+        var tabelaTamanho = [0,1,2,3,4,8,16,32,64];
+        return (somaForca+tabelaTamanho[parseInt(tamanho)]+parseInt(bonus)).toString();
+    });
+
+    Handlebars.registerHelper('somaFadigaMax', function (forcaG,forcaR,forcaB,reflexoG,reflexoR,reflexoB,tamanho,bonus) {
+        var somaForca = parseInt(forcaG)+parseInt(forcaR)+parseInt(forcaB);
+        var somaReflexo = parseInt(reflexoG)+parseInt(reflexoR)+parseInt(reflexoB);
+        var somaTotal = somaForca+somaReflexo;
+        
+        var tabelaTamanho = [0,1,2,3,4,8,16,32,64];
+        return (somaForca+somaTotal+tabelaTamanho[parseInt(tamanho)]+parseInt(bonus)).toString();
+    });
+
+    Handlebars.registerHelper('calcTamanho', function (tamanho) {
+        var tabelaTamanho = [0,1,2,3,4,8,16,32,64];
+        return (tabelaTamanho[parseInt(tamanho)]).toString();
+    });
+
+    Handlebars.registerHelper('txtTamanho', function (tamanho) {
+        var tabelaTamanho = ["Ínfimo","Mínimo","Miúdo","Pequeno","Médio","Grande","Enorme","Imenso","Colossal"];
+        return (tabelaTamanho[parseInt(tamanho)]).toString();
+    });
+
+    Handlebars.registerHelper('porcentagem', function (parte, total) {
+        if(parseInt(total) != 0) {
+            if(parseInt(parte) <= parseInt(total)) {
+                if(parseInt(parte) > 0) {
+                    var calcBase = Math.floor((parseInt(parte)/parseInt(total))*100);
+    
+                    return calcBase+"%";
+    
+                } else {
+                    return "0%";
+                }
+            } else {
+                return "100%";
+            }
+
+        } else {
+            return "0%";
+        }
+    });
+
+
+    Handlebars.registerHelper('metade', function (valor) {
+        var metadeCalc = Math.floor(parseInt(valor)/2);
+        return metadeCalc.toString();
+        
+     });
+
+     Handlebars.registerHelper('statusCalc', function (valor, max) {
+        valor = parseInt(valor);
+        max = parseInt(max);
+        var maxNegativo = max*-1;
+        var metadeCalc = Math.floor(max/2);
+
+        if(valor > max) {
+            return 'disposto';
+        } else if(valor <= max && valor >= metadeCalc ) {
+            return 'normal';
+        } else if(valor > 0 && valor < metadeCalc) {
+            return 'debilitado';
+        } else if(valor <= 0 && valor > maxNegativo){
+            return 'desmaiado';
+        } else if(valor <= maxNegativo) {
+            return 'morto';
+        }
+        
+     });
+
+    
+
+    
+    
+    
+
     // Handlebars.registerHelper('somaXpAttr', function (f, r, i, e) {
 
     //     if(typeof(f) !== "number") {
