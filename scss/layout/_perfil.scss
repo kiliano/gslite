@@ -697,7 +697,7 @@ body {
 
 .ficha-corpo {
     position: relative;
-    padding-top: 10px;
+    // padding-top: 10px;
 }
 
 .ficha-corpo-parte {
@@ -1041,7 +1041,7 @@ body {
 
 
 .ficha-perfil-atributos .ficha-xp, .ficha-perfil-pericias .ficha-xp {
-    .minimodalAddXp {
+    .minimodalAddXp, .minimodalAddAttr {
         z-index: 10;
         background: rgba(0,0,0,0.95);
         padding: 7px 10px;
@@ -1071,5 +1071,40 @@ body {
             padding: 3px;
             background: #333;
         }
+    }
+}
+
+
+.ficha-perfil-pericias .ficha-pericia-item .ficha-txt {
+    text-transform: lowercase;
+}
+
+
+.ficha-modal-footer {
+    border-top: 1px solid #22212d;
+    padding-top: 5px;
+    margin-top: 10px;
+
+    font-size: 11px;
+
+    .item-delete, .item-delete-FAKE {
+        opacity: 0.4;
+        margin-bottom: 5px;
+        display: inline-block;
+        margin-top: 10px;
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .item-delete {
+        display: none;
+    }
+
+    .ficha-modal-footer-nota {
+        padding-bottom: 3px;
+        opacity: 0.2;
+        font-size: 9px;
+        font-style: italic;
     }
 }

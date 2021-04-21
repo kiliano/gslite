@@ -1,4 +1,4 @@
-<form class="ficha ficha-editavel-{{data.editavel}}" autocomplete="off" abaAberta="{{data.abaAberta}}" modalAberto="{{data.modalAberto}}" fichaunica="{{strToCode actor.name}}">
+<form class="ficha ficha-editavel-{{data.editavel}}" autocomplete="off" abaAberta="{{data.abaAberta}}" modalAberto="{{data.modalAberto}}" fichaunica="{{actor._id}}">
 
 
     	<div class="ficha-box-stroke gradiente">
@@ -91,11 +91,11 @@
 							</div>
 
 							<div class="ficha-xp">
-                                <span class="jsXpAtributosFake"></span> xp atr
+                                <span class="jsXpAtributosFake"></span> atr
                                 <input type="hidden" name="data.xp-atributos" value="{{data.xp-atributos}}" class="jsXpAtributos">
                                 <input type="hidden" value="0" class="jsXpAtributosFakeInput">
 
-                                <div class="minimodalAddXp">
+                                <div class="minimodalAddAttr">
                                     <span>Adicionar Pontos de Atributo</span>
                                     <input type="text" value="0" class="jsAddXp">
                                     <a href="javascript:void(0)">OK</a>
@@ -183,198 +183,34 @@
 							</div>
 
 							<div class="ficha-xp">
-								<input type="text" value="55" class="ficha-3algarismos"> xp
+								<span class="jsXpFake"></span> xp
+                                <input type="hidden" value="0" class="jsXpFakeInput">
+								<input type="hidden" name="data.xp" value="{{data.xp}}" class="jsXp">
+
+								<div class="minimodalAddXp">
+                                    <span>Adicionar XP</span>
+                                    <input type="text" value="0" class="jsAddXp">
+                                    <a href="javascript:void(0)">OK</a>
+                                </div>
 							</div>
 							<div class="ficha-pericias">
-
+								{{#each pericias as |pericia id|}}
 								<!-- pericia item -->
-								<div class="ficha-pericia-item">
+								<div class="ficha-pericia-item" periciagraduacao="{{pericia.data.graduacao}}">
 									<div class="ficha-pericia">
-										<a href="javascript:void(0)" class="ficha-txt">
-											vigor
+										<a href="javascript:void(0)" class="ficha-txt" abrirmodalcontext="pericia{{pericia._id}}">
+											{{pericia.name}}
 										</a>
 
-										<a href="javascript:void(0)" class="ficha-numeros">
-											<span class="ficha-numero gradiente-txt">2</span>
-
-											<span class="ficha-bonus">+1</span>
+										<a href="javascript:void(0)" class="ficha-numeros" abrirmodalcontext="pericia{{pericia._id}}">
+											<span class="ficha-numero gradiente-txt">{{somaPericia pericia.data.graduacao pericia.data.bonus}}</span>
 										</a>
 									</div>
 								</div>
 								<!-- /pericia item -->
-
-								<!-- pericia item -->
-								<div class="ficha-pericia-item">
-									<div class="ficha-pericia">
-										<a href="javascript:void(0)" class="ficha-txt">
-											esquiva
-										</a>
-
-										<a href="javascript:void(0)" class="ficha-numeros">
-											<span class="ficha-numero gradiente-txt">2</span>
-
-											<span class="ficha-bonus">+1</span>
-										</a>
-									</div>
-								</div>
-								<!-- /pericia item -->
+								{{/each}}
 
 
-								<!-- pericia item -->
-								<div class="ficha-pericia-item">
-									<div class="ficha-pericia">
-										<a href="javascript:void(0)" class="ficha-txt">
-											concentração
-										</a>
-
-										<a href="javascript:void(0)" class="ficha-numeros">
-											<span class="ficha-numero gradiente-txt">2</span>
-
-											<span class="ficha-bonus">+1</span>
-										</a>
-									</div>
-								</div>
-								<!-- /pericia item -->
-
-
-								<!-- pericia item -->
-								<div class="ficha-pericia-item">
-									<div class="ficha-pericia">
-										<a href="javascript:void(0)" class="ficha-txt">
-											atletismo
-										</a>
-
-										<a href="javascript:void(0)" class="ficha-numeros">
-											<span class="ficha-numero gradiente-txt">2</span>
-
-											<span class="ficha-bonus">+1</span>
-										</a>
-									</div>
-								</div>
-								<!-- /pericia item -->
-
-
-								<!-- pericia item -->
-								<div class="ficha-pericia-item">
-									<div class="ficha-pericia">
-										<a href="javascript:void(0)" class="ficha-txt">
-											iniciativa
-										</a>
-
-										<a href="javascript:void(0)" class="ficha-numeros">
-											<span class="ficha-numero gradiente-txt">2</span>
-
-											<span class="ficha-bonus">+1</span>
-										</a>
-									</div>
-								</div>
-								<!-- /pericia item -->
-
-
-								<!-- pericia item -->
-								<div class="ficha-pericia-item">
-									<div class="ficha-pericia">
-										<a href="javascript:void(0)" class="ficha-txt">
-											percepção
-										</a>
-
-										<a href="javascript:void(0)" class="ficha-numeros">
-											<span class="ficha-numero gradiente-txt">2</span>
-
-											<span class="ficha-bonus">+1</span>
-										</a>
-									</div>
-								</div>
-								<!-- /pericia item -->
-
-
-								<!-- pericia item -->
-								<div class="ficha-pericia-item">
-									<div class="ficha-pericia">
-										<a href="javascript:void(0)" class="ficha-txt">
-											iniciativa
-										</a>
-
-										<a href="javascript:void(0)" class="ficha-numeros">
-											<span class="ficha-numero gradiente-txt">2</span>
-
-											<span class="ficha-bonus">+1</span>
-										</a>
-									</div>
-								</div>
-								<!-- /pericia item -->
-
-
-
-								<!-- pericia item -->
-								<div class="ficha-pericia-item">
-									<div class="ficha-pericia">
-										<a href="javascript:void(0)" class="ficha-txt">
-											arcos
-										</a>
-
-										<a href="javascript:void(0)" class="ficha-numeros">
-											<span class="ficha-numero gradiente-txt">2</span>
-
-											<span class="ficha-bonus">+1</span>
-										</a>
-									</div>
-								</div>
-								<!-- /pericia item -->
-
-
-
-								<!-- pericia item -->
-								<div class="ficha-pericia-item">
-									<div class="ficha-pericia">
-										<a href="javascript:void(0)" class="ficha-txt">
-											acrobacia
-										</a>
-
-										<a href="javascript:void(0)" class="ficha-numeros">
-											<span class="ficha-numero gradiente-txt">2</span>
-
-											<span class="ficha-bonus">+1</span>
-										</a>
-									</div>
-								</div>
-								<!-- /pericia item -->
-
-
-
-								<!-- pericia item -->
-								<div class="ficha-pericia-item">
-									<div class="ficha-pericia">
-										<a href="javascript:void(0)" class="ficha-txt">
-											ofícios
-										</a>
-
-										<a href="javascript:void(0)" class="ficha-numeros">
-											<span class="ficha-numero gradiente-txt">2</span>
-
-											<span class="ficha-bonus">+1</span>
-										</a>
-									</div>
-								</div>
-								<!-- /pericia item -->
-
-
-
-								<!-- pericia item -->
-								<div class="ficha-pericia-item">
-									<div class="ficha-pericia">
-										<a href="javascript:void(0)" class="ficha-txt">
-											arremesso de adaga
-										</a>
-
-										<a href="javascript:void(0)" class="ficha-numeros">
-											<span class="ficha-numero gradiente-txt">2</span>
-
-											<span class="ficha-bonus">+1</span>
-										</a>
-									</div>
-								</div>
-								<!-- /pericia item -->
 
 
 
@@ -588,8 +424,7 @@
 
 			</div>
 			<!-- PERFIL -->
-            
-
+            {{#if editable}}
             <!-- MODAIs -->
 			<div class="ficha-modais">
 
@@ -603,7 +438,7 @@
 								</span>
 
 								<div class="ficha-xp">
-									<span class="jsXpAtributosFake"></span> xp atr
+									<span class="jsXpAtributosFake"></span> atr
 								</div>
 							</div>
 
@@ -697,7 +532,7 @@
 								</span>
 
 								<div class="ficha-xp">
-									<span class="jsXpAtributosFake"></span> xp atr
+									<span class="jsXpAtributosFake"></span> xp
 								</div>
 							</div>
 
@@ -791,7 +626,7 @@
 								</span>
 
 								<div class="ficha-xp">
-									<span class="jsXpAtributosFake"></span> xp atr
+									<span class="jsXpAtributosFake"></span> atr
 								</div>
 							</div>
 
@@ -885,7 +720,7 @@
 								</span>
 
 								<div class="ficha-xp">
-									<span class="jsXpAtributosFake"></span> xp atr
+									<span class="jsXpAtributosFake"></span> atr
 								</div>
 							</div>
 
@@ -968,7 +803,7 @@
 				</div>
 				<!-- /MODAL empatia-->
 
-
+			
 				<!-- MODAL pvMax -->
 				<div class="ficha-modal-atributos ficha-modal" modalId="pvmax">
 					<div class="ficha-modal-center">
@@ -1102,14 +937,136 @@
 				</div>
 				<!-- /MODAL fadigaMax-->
 
+
+				{{!-- MODAIS PERICIAS --}}
+				{{#each pericias as |pericia id|}}
+				<div class="ficha-modal-atributos ficha-modal item" modalId="pericia{{pericia._id}}" data-item-id="{{pericia._id}}">
+					<div class="ficha-modal-center">
+						<div class="ficha-modal-conteudo">
+							<div class="ficha-modal-titulo">
+								<span class="gradiente-txt">
+									{{#if (ne pericia.data.idN "")}}
+									{{pericia.name}}
+									{{/if}}
+
+									{{#if (eq pericia.data.idN "")}}
+									<input type="text" data-field="name" class="inline-edit" value="{{pericia.name}}">
+									{{/if}}
+								</span>
+
+								<div class="ficha-xp">
+									<span class="jsXpFake"></span> xp
+								</div>
+							</div>
+
+							<div class="ficha-modal-txt">
+								<div class="ficha-modal-tabela">
+									<div class="ficha-modal-tabela-linha">
+										
+										<div class="ficha-modal-tabela-cel">
+											<strong>soma</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>graduação</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<strong>bônus</strong>
+										</div>
+
+										<div class="ficha-modal-tabela-cel" style="min-width: 145px;">
+											<strong>atributo comum</strong>
+										</div>
+
+									</div>
+
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<span class="gradiente-txt">
+												{{somaPericia pericia.data.graduacao pericia.data.bonus}}
+											</span>
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<div class="numero-box">
+
+                                                <div class="ficha-atributo-numero">{{pericia.data.graduacao}}</div>
+
+
+												<input class="inline-edit numero-input" type="hidden" data-field="data.graduacao" value="{{pericia.data.graduacao}}">
+                                                
+												<a href="javascript:void(0)" class="numero-conta-menos jsContaMenospericia" valorProximo="0">
+													<span class="numero-conta-sinal">
+														-
+													</span>
+													<span class="numero-tooltip"></span>
+												</a>
+
+
+												<a href="javascript:void(0)" class="numero-conta-mais jsContaMaispericia" valorProximo="0">
+													<span class="numero-conta-sinal">
+														+
+													</span>
+													<span class="numero-tooltip"></span>
+												</a>
+
+
+
+											</div>
+
+											
+										</div>
+
+										<div class="ficha-modal-tabela-cel">
+											<input type="text" class="ficha-atributo-numero inline-edit" data-field="data.bonus" value="{{pericia.data.bonus}}">
+										</div>
+
+										<div class="ficha-modal-tabela-cel" style="min-width: 145px;">
+											<select data-field="data.atributo" class="inline-edit">
+												<option value="forca" {{#if (eq pericia.data.atributo "forca")}}selected{{/if}}>força</option>
+												<option value="reflexos" {{#if (eq pericia.data.atributo "reflexos")}}selected{{/if}}>reflexos</option>
+												<option value="inteligencia" {{#if (eq pericia.data.atributo "inteligencia")}}selected{{/if}}>inteligência</option>
+												<option value="empatia" {{#if (eq pericia.data.atributo "empatia")}}selected{{/if}}>empatia</option>
+											</select>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							
+
+							<div class="ficha-modal-footer">
+								<a href="javascript:void(0)" class="item-delete-FAKE">
+									<i class="fas fa-trash"></i> deletar perícia
+								</a>
+
+								<a href="javascript:void(0)" class="item-delete">
+									<i class="fas fa-trash"></i> TEM CERTEZA?
+								</a>
+							
+								<div class="ficha-modal-footer-nota">(irreversível, cuidado)</div>
+							</div>
+
+							<a href="javascript:void(0)" class="ficha-modal-fechar" fecharModal="">x</a>
+						</div>
+
+						<div class="ficha-modal-overlay" fecharModal=""></div>
+					</div>
+				</div>
+
+				{{/each}}
+				{{!-- /MODAIS PERICIAS --}}
+
 			</div>
 			<!-- MODAIS -->
+			{{/if}}
 
 
 
 		</div>
 	</div>
-
+	{{#if editable}}
     <script>
         setTimeout(function(){
             $("body").find(".window-app").each(function(){
@@ -1120,29 +1077,38 @@
                 }
             });
 
-            $("[fichaunica='{{strToCode actor.name}}'] [abrirmodalcontext]").contextmenu(function(e){
+            $("[fichaunica='{{actor._id}}'] [abrirmodalcontext]").contextmenu(function(e){
                 e.preventDefault();
                 $(this).parents(".ficha").find(".jsModalAberto").val($(this).attr("abrirmodalcontext")).trigger("change");
             });
 
-            $("[fichaunica='{{strToCode actor.name}}'] [abrirModal]").click(function(e){
+            $("[fichaunica='{{actor._id}}'] [abrirModal]").click(function(e){
                 e.preventDefault();
                 $(this).parents(".ficha").find(".jsModalAberto").val($(this).attr("abrirModal")).trigger("change");
             });
 
-            $("[fichaunica='{{strToCode actor.name}}'] [fecharModal]").click(function(e){
+            $("[fichaunica='{{actor._id}}'] [fecharModal]").click(function(e){
                 $(this).parents(".ficha").find(".jsModalAberto").val("modaloff").trigger("change");
             });
 
-            $("[fichaunica='{{strToCode actor.name}}'] [abrirAba]").click(function(e){
+            $("[fichaunica='{{actor._id}}'] [abrirAba]").click(function(e){
                 e.preventDefault();
                 $(this).parents(".ficha").find(".jsAbaAberta").val($(this).attr("abrirAba")).trigger("change");
             });
 
+			$("[fichaunica='{{actor._id}}'] .item-delete-FAKE").click(function(e){
+                e.preventDefault();
+				$(this).hide();
+                $(this).next(".item-delete").show();
+            });
+
+
+			
+
 
             //Numeros
 
-            $("[fichaunica='{{strToCode actor.name}}'] .jsContaMaisAtributo, [fichaunica='{{strToCode actor.name}}'] .jsContaMenosAtributo").click(function(){
+            $("[fichaunica='{{actor._id}}'] .jsContaMaisAtributo, [fichaunica='{{actor._id}}'] .jsContaMenosAtributo").click(function(){
                 var numeroAlvo = $(this).parent(".numero-box").find(".numero-input").val();
                 var xpFakeDisponivel = $(this).parents(".ficha").find(".jsXpAtributosFakeInput").val();
                 if(typeof(numeroAlvo) != "number") {
@@ -1176,45 +1142,58 @@
             
             //Xp À Gastar
 
-            var valorForca{{strToCode actor.name}} = parseInt($('[fichaunica="{{strToCode actor.name}}"] input[name="data.forca.graduacao"]').val());
-            var valorReflexos{{strToCode actor.name}} = parseInt($('[fichaunica="{{strToCode actor.name}}"] input[name="data.reflexos.graduacao"]').val());
-            var valorInteligencia{{strToCode actor.name}} = parseInt($('[fichaunica="{{strToCode actor.name}}"] input[name="data.inteligencia.graduacao"]').val());
-            var valorEmpatia{{strToCode actor.name}} = parseInt($('[fichaunica="{{strToCode actor.name}}"] input[name="data.empatia.graduacao"]').val());
+            var valorForca{{actor._id}} = parseInt($('[fichaunica="{{actor._id}}"] input[name="data.forca.graduacao"]').val());
+            var valorReflexos{{actor._id}} = parseInt($('[fichaunica="{{actor._id}}"] input[name="data.reflexos.graduacao"]').val());
+            var valorInteligencia{{actor._id}} = parseInt($('[fichaunica="{{actor._id}}"] input[name="data.inteligencia.graduacao"]').val());
+            var valorEmpatia{{actor._id}} = parseInt($('[fichaunica="{{actor._id}}"] input[name="data.empatia.graduacao"]').val());
 
-            var fNovo{{strToCode actor.name}} = -3;
-            for (var Xa = 0; Xa <= valorForca{{strToCode actor.name}}; Xa++) {
-                fNovo{{strToCode actor.name}} += Math.ceil(Xa/5)
+            var fNovo{{actor._id}} = -3;
+            for (var Xa = 0; Xa <= valorForca{{actor._id}}; Xa++) {
+                fNovo{{actor._id}} += Math.ceil(Xa/5)
             }
 
-            var rNovo{{strToCode actor.name}} = -3;
-            for (var Xb = 0; Xb <= valorReflexos{{strToCode actor.name}}; Xb++) {
-                rNovo{{strToCode actor.name}} += Math.ceil(Xb/5)
+            var rNovo{{actor._id}} = -3;
+            for (var Xb = 0; Xb <= valorReflexos{{actor._id}}; Xb++) {
+                rNovo{{actor._id}} += Math.ceil(Xb/5)
             }
 
-            var iNovo{{strToCode actor.name}} = -3;
-            for (var Xc = 0; Xc <= valorInteligencia{{strToCode actor.name}}; Xc++) {
-                iNovo{{strToCode actor.name}} += Math.ceil(Xc/5)
+            var iNovo{{actor._id}} = -3;
+            for (var Xc = 0; Xc <= valorInteligencia{{actor._id}}; Xc++) {
+                iNovo{{actor._id}} += Math.ceil(Xc/5)
             }
 
-            var eNovo{{strToCode actor.name}} = -3;
-            for (var Xd = 0; Xd <= valorEmpatia{{strToCode actor.name}}; Xd++) {
-                eNovo{{strToCode actor.name}} += Math.ceil(Xd/5)
+            var eNovo{{actor._id}} = -3;
+            for (var Xd = 0; Xd <= valorEmpatia{{actor._id}}; Xd++) {
+                eNovo{{actor._id}} += Math.ceil(Xd/5)
             }
 
-            var xpGasto{{strToCode actor.name}} = fNovo{{strToCode actor.name}}+rNovo{{strToCode actor.name}}+iNovo{{strToCode actor.name}}+eNovo{{strToCode actor.name}};
-            var xpTotal{{strToCode actor.name}} = parseInt($('[fichaunica="{{strToCode actor.name}}"] [name="data.xp-atributos"]').val());
+            var xpAttrGasto{{actor._id}} = fNovo{{actor._id}}+rNovo{{actor._id}}+iNovo{{actor._id}}+eNovo{{actor._id}};
+            var xpAttrTotal{{actor._id}} = parseInt($('[fichaunica="{{actor._id}}"] [name="data.xp-atributos"]').val());
 
-            $("[fichaunica='{{strToCode actor.name}}'] .jsXpAtributosFake").html((xpTotal{{strToCode actor.name}}-xpGasto{{strToCode actor.name}}).toString());
-            $("[fichaunica='{{strToCode actor.name}}'] .jsXpAtributosFakeInput").val((xpTotal{{strToCode actor.name}}-xpGasto{{strToCode actor.name}}));
+            $("[fichaunica='{{actor._id}}'] .jsXpAtributosFake").html((xpAttrTotal{{actor._id}}-xpAttrGasto{{actor._id}}).toString());
+            $("[fichaunica='{{actor._id}}'] .jsXpAtributosFakeInput").val((xpAttrTotal{{actor._id}}-xpAttrGasto{{actor._id}}));
             
 
 
-            $("[fichaunica='{{strToCode actor.name}}'] .ficha-perfil-atributos .ficha-xp, [fichaunica='{{strToCode actor.name}}'] .ficha-perfil-pericias .ficha-xp").contextmenu(function(){
-                $(this).find(".minimodalAddXp").toggle();
+            $("[fichaunica='{{actor._id}}'] .ficha-perfil-atributos .ficha-xp, [fichaunica='{{actor._id}}'] .ficha-perfil-pericias .ficha-xp").contextmenu(function(){
+                $(this).find(".minimodalAddAttr, .minimodalAddXp").toggle();
             });
 
-            $("[fichaunica='{{strToCode actor.name}}'] .minimodalAddXp a").click(function(){
+			$("[fichaunica='{{actor._id}}'] .minimodalAddXp a").click(function(){
                 var acrescentarXp = parseInt($(this).parents(".minimodalAddXp").find("input").val());
+
+                if(typeof(acrescentarXp)==="number") {
+                    var acrescentarXpTotal = parseInt($(this).parents(".ficha").find('[name="data.xp"]').val());
+                    $(this).parents(".ficha").find('[name="data.xp"]').val(acrescentarXpTotal+acrescentarXp).trigger("change");
+                } else {
+                    alert("Inválido");
+                }
+            });
+
+
+
+            $("[fichaunica='{{actor._id}}'] .minimodalAddAttr a").click(function(){
+                var acrescentarXp = parseInt($(this).parents(".minimodalAddAttr").find("input").val());
 
                 if(typeof(acrescentarXp)==="number") {
                     var acrescentarXpTotal = parseInt($(this).parents(".ficha").find('[name="data.xp-atributos"]').val());
@@ -1225,14 +1204,14 @@
             });
 
 
-            $("[fichaunica='{{strToCode actor.name}}'] .jsContaMaisAtributo, [fichaunica='{{strToCode actor.name}}'] .jsContaMenosAtributo").each(function(){
+            $("[fichaunica='{{actor._id}}'] .jsContaMaisAtributo, [fichaunica='{{actor._id}}'] .jsContaMenosAtributo").each(function(){
                 var valorAtribuloGraduado = parseInt($(this).parents(".numero-box").find(".numero-input").val());
 
                 if(valorAtribuloGraduado) {
                     if($(this).hasClass("jsContaMaisAtributo")) {
                         valorAtribuloGraduado += 1;
                         var valorAtribuloGraduadoArredondado = Math.ceil(valorAtribuloGraduado/5);
-                        $(this).find(".numero-tooltip").html(" -"+valorAtribuloGraduadoArredondado+" xp atr");
+                        $(this).find(".numero-tooltip").html(" -"+valorAtribuloGraduadoArredondado+" atr");
                         $(this).attr("valorProximo",valorAtribuloGraduadoArredondado);
                         
                     } else {
@@ -1241,7 +1220,7 @@
                             $(this).show();
                             valorAtribuloGraduado += 1;
                             var valorAtribuloGraduadoArredondado = Math.ceil(valorAtribuloGraduado/5);
-                            $(this).find(".numero-tooltip").html(" +"+valorAtribuloGraduadoArredondado+" xp atr");
+                            $(this).find(".numero-tooltip").html(" +"+valorAtribuloGraduadoArredondado+" atr");
                         } else {
                             valorAtribuloGraduado = 0;
                             $(this).hide();
@@ -1251,55 +1230,132 @@
                 }
 
 
-                $("[fichaunica='{{strToCode actor.name}}'] .jsEditavelChange").click(function(){
-                    var editavelValor = $(this).attr("editavelValor");
-                    if(editavelValor === "false") {
-                        $(this).parents(".ficha").find('[name="data.editavel"]').val("true").trigger("change");
-                    } else {
-                        $(this).parents(".ficha").find('[name="data.editavel"]').val("false").trigger("change");
-                    }
-                });
-
-
-                let editarFichaContagem{{strToCode actor.name}} = 0;
-                $("[fichaunica='{{strToCode actor.name}}'] .ficha-perfil-corpo-img").contextmenu(function(){
-                    editarFichaContagem{{strToCode actor.name}} += 1;
-
-                    if(editarFichaContagem{{strToCode actor.name}} > 5) {
-                        $("[fichaunica='{{strToCode actor.name}}'] .jsEditavelChangeLi").show();
-                    }
-                });
             });
 
-            $("[fichaunica='{{strToCode actor.name}}'] .jsSelectFakeContext").contextmenu(function(){
+			$("[fichaunica='{{actor._id}}'] .jsEditavelChange").click(function(){
+				var editavelValor = $(this).attr("editavelValor");
+				if(editavelValor === "false") {
+					$(this).parents(".ficha").find('[name="data.editavel"]').val("true").trigger("change");
+				} else {
+					$(this).parents(".ficha").find('[name="data.editavel"]').val("false").trigger("change");
+				}
+			});
+
+
+			let editarFichaContagem{{actor._id}} = 0;
+			$("[fichaunica='{{actor._id}}'] .ficha-perfil-corpo-img").contextmenu(function(){
+				editarFichaContagem{{actor._id}} += 1;
+
+				if(editarFichaContagem{{actor._id}} > 5) {
+					$("[fichaunica='{{actor._id}}'] .jsEditavelChangeLi").show();
+				}
+			});
+
+            $("[fichaunica='{{actor._id}}'] .jsSelectFakeContext").contextmenu(function(){
                 $(this).find(".ficha-selectfake-box").fadeToggle();
             });
 
-			var pvMaxCalculado = $('[fichaunica="{{strToCode actor.name}}"] .jsPvMaximo').val();
-			var pvMaxFicha = $('[fichaunica="{{strToCode actor.name}}"] [name="data.pv.max"]').val();
+			var pvMaxCalculado = $('[fichaunica="{{actor._id}}"] .jsPvMaximo').val();
+			var pvMaxFicha = $('[fichaunica="{{actor._id}}"] [name="data.pv.max"]').val();
 			if(pvMaxCalculado != pvMaxFicha) {
-				$('[fichaunica="{{strToCode actor.name}}"] [name="data.pv.max"]').val(pvMaxCalculado);
+				$('[fichaunica="{{actor._id}}"] [name="data.pv.max"]').val(pvMaxCalculado);
 			}
 
-			var statusPv = $('[fichaunica="{{strToCode actor.name}}"] .jsPvStatus').val();
-			var statusPvReal = $('[fichaunica="{{strToCode actor.name}}"] [name="data.pv.status"]').val();
+			var statusPv = $('[fichaunica="{{actor._id}}"] .jsPvStatus').val();
+			var statusPvReal = $('[fichaunica="{{actor._id}}"] [name="data.pv.status"]').val();
 
 			if(statusPv != statusPvReal) {
-				$('[fichaunica="{{strToCode actor.name}}"] [name="data.pv.status"]').val(statusPv);
+				$('[fichaunica="{{actor._id}}"] [name="data.pv.status"]').val(statusPv);
 			}
 
-			var fadigaMaxCalculado = $('[fichaunica="{{strToCode actor.name}}"] .jsFadigaMaxima').val();
-			var fadigaMaxFicha = $('[fichaunica="{{strToCode actor.name}}"] [name="data.fadiga.max"]').val();
+			var fadigaMaxCalculado = $('[fichaunica="{{actor._id}}"] .jsFadigaMaxima').val();
+			var fadigaMaxFicha = $('[fichaunica="{{actor._id}}"] [name="data.fadiga.max"]').val();
 			if(fadigaMaxCalculado != fadigaMaxFicha) {
-				$('[fichaunica="{{strToCode actor.name}}"] [name="data.fadiga.max"]').val(fadigaMaxCalculado);
+				$('[fichaunica="{{actor._id}}"] [name="data.fadiga.max"]').val(fadigaMaxCalculado);
 			}
 
-			var statusFadiga = $('[fichaunica="{{strToCode actor.name}}"] .jsFadigaStatus').val();
-			var statusFadigaReal = $('[fichaunica="{{strToCode actor.name}}"] [name="data.fadiga.status"]').val();
+			var statusFadiga = $('[fichaunica="{{actor._id}}"] .jsFadigaStatus').val();
+			var statusFadigaReal = $('[fichaunica="{{actor._id}}"] [name="data.fadiga.status"]').val();
 
 			if(statusPv != statusPvReal) {
-				$('[fichaunica="{{strToCode actor.name}}"] [name="data.fadiga.status"]').val(statusFadiga);
+				$('[fichaunica="{{actor._id}}"] [name="data.fadiga.status"]').val(statusFadiga);
 			}
+
+
+			//Calculo XP perícia
+
+			var xpGasto{{actor._id}} = 0;
+			$('[fichaunica="{{actor._id}}"] [periciagraduacao]').each(function(){
+				var graduacaoPericia = parseInt($(this).attr('periciagraduacao'));
+				xpGasto{{actor._id}} += 5*(graduacaoPericia*graduacaoPericia)+(5*graduacaoPericia);
+			});
+
+
+            var xpTotal{{actor._id}} = parseInt($('[fichaunica="{{actor._id}}"] [name="data.xp"]').val());
+
+            $("[fichaunica='{{actor._id}}'] .jsXpFake").html((xpTotal{{actor._id}}-xpGasto{{actor._id}}).toString());
+            $("[fichaunica='{{actor._id}}'] .jsXpFakeInput").val((xpTotal{{actor._id}}-xpGasto{{actor._id}}));
+
+
+			//Graduação perícias
+
+			$("[fichaunica='{{actor._id}}'] .jsContaMaispericia").each(function(){
+                var valorPericiaGraduada = parseInt($(this).parents(".numero-box").find(".numero-input").val());
+				valorPericiaGraduada += 1;
+				var valorPericiaGraduadaArredondado = valorPericiaGraduada*10;
+				$(this).find(".numero-tooltip").html(" -"+valorPericiaGraduadaArredondado+" xp");
+				$(this).attr("valorProximo",valorPericiaGraduadaArredondado);
+            });
+
+			$("[fichaunica='{{actor._id}}'] .jsContaMenospericia").each(function(){
+                var valorPericiaGraduada = parseInt($(this).parents(".numero-box").find(".numero-input").val());
+                if(valorPericiaGraduada <= 0) {
+					$(this).hide();
+				} else {
+					var valorPericiaGraduadaArredondado = valorPericiaGraduada*10;
+					$(this).find(".numero-tooltip").html(" +"+valorPericiaGraduadaArredondado+" xp");
+					$(this).attr("valorProximo",valorPericiaGraduadaArredondado);
+				}
+            });
+
+			$("[fichaunica='{{actor._id}}'] .jsContaMaispericia, [fichaunica='{{actor._id}}'] .jsContaMenospericia").click(function(){
+                var numeroAlvo = $(this).parent(".numero-box").find(".numero-input").val();
+                var xpFakeDisponivel = $(this).parents(".ficha").find(".jsXpFakeInput").val();
+
+                if(typeof(numeroAlvo) != "number") {
+                    numeroAlvo = parseInt(numeroAlvo);
+                }
+
+                if(typeof(xpFakeDisponivel) != "number") {
+                    xpFakeDisponivel = parseInt(xpFakeDisponivel);
+                }
+
+
+                if($(this).hasClass("jsContaMaispericia")) {
+                    var proximoGasto = parseInt($(this).attr("valorproximo"));
+                    console.log(proximoGasto);
+                    console.log(xpFakeDisponivel);
+
+                    if(proximoGasto > xpFakeDisponivel) {
+                        alert("XP indisponível");
+                    } else {
+                        numeroAlvo += 1;
+                        $(this).parent(".numero-box").find(".numero-input").val(numeroAlvo).trigger("change");
+                    }
+                    
+                } else {
+                    numeroAlvo -= 1;
+                    $(this).parent(".numero-box").find(".numero-input").val(numeroAlvo).trigger("change");
+                }
+
+            });
+
+			
+
+
+			
+
+			
 
 
 
@@ -1308,16 +1364,18 @@
         },300);
     </script>
 
-    
-        
-        <!--<section class="defeitos-qualidades">
-            <h3>Defeitos</h3>a
-            <ul class="defeitos">
-                {{#each defeitos as |defeitoitem id|}}
-                {{> "systems/gslite/templates/partials/defeito.hbs" defeitoitem}}
-                {{/each}}
-            </ul>b
-        </section>-->
+	<style>
+		{{!-- Estilo de modais de perícias --}}
+		{{#each pericias as |pericia id|}}
+			[modalAberto="pericia{{pericia._id}}"] [modalId="pericia{{pericia._id}}"] {
+					display: block;
+			}
+			[modalAberto="pericia{{pericia._id}}"] [modalId="pericia{{pericia._id}}"] .ficha-modal-conteudo {
+				display: block;
+			}
+		{{/each}}
+	</style>
+	{{/if}}
 
     <input type="hidden" value="{{data.abaAberta}}" name="data.abaAberta" class="jsAbaAberta">
     <input type="hidden" value="{{data.modalAberto}}" name="data.modalAberto" class="jsModalAberto">

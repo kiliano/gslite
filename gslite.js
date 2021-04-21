@@ -60,6 +60,10 @@ Hooks.once("init", function(){
         return (parseInt(a)+parseInt(b)+parseInt(c)).toString();
     });
 
+    Handlebars.registerHelper('somaPericia', function (a, b) {
+        return (parseInt(a)+parseInt(b)).toString();
+    });
+
     Handlebars.registerHelper('somaPvMax', function (forcaG,forcaR,forcaB,tamanho,bonus) {
         // Tam. ínfimo (0)
         // Tam. Mínimo (1)
@@ -83,7 +87,7 @@ Hooks.once("init", function(){
         var somaTotal = somaForca+somaReflexo;
         
         var tabelaTamanho = [0,1,2,3,4,8,16,32,64];
-        return (somaForca+somaTotal+tabelaTamanho[parseInt(tamanho)]+parseInt(bonus)).toString();
+        return (somaTotal+tabelaTamanho[parseInt(tamanho)]+parseInt(bonus)).toString();
     });
 
     Handlebars.registerHelper('calcTamanho', function (tamanho) {

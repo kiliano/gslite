@@ -3671,8 +3671,7 @@ body {
   min-height: 293px; }
 
 .ficha-corpo {
-  position: relative;
-  padding-top: 10px; }
+  position: relative; }
 
 .ficha ::selection {
   color: #000 !important;
@@ -3872,7 +3871,7 @@ body {
   padding: 2px 5px;
   line-height: 1; }
 
-.ficha-perfil-atributos .ficha-xp .minimodalAddXp, .ficha-perfil-pericias .ficha-xp .minimodalAddXp {
+.ficha-perfil-atributos .ficha-xp .minimodalAddXp, .ficha-perfil-atributos .ficha-xp .minimodalAddAttr, .ficha-perfil-pericias .ficha-xp .minimodalAddXp, .ficha-perfil-pericias .ficha-xp .minimodalAddAttr {
   z-index: 10;
   background: rgba(0, 0, 0, 0.95);
   padding: 7px 10px;
@@ -3882,20 +3881,43 @@ body {
   border-radius: 5px;
   min-width: 220px;
   display: none; }
-  .ficha-perfil-atributos .ficha-xp .minimodalAddXp > span, .ficha-perfil-pericias .ficha-xp .minimodalAddXp > span {
+  .ficha-perfil-atributos .ficha-xp .minimodalAddXp > span, .ficha-perfil-atributos .ficha-xp .minimodalAddAttr > span, .ficha-perfil-pericias .ficha-xp .minimodalAddXp > span, .ficha-perfil-pericias .ficha-xp .minimodalAddAttr > span {
     display: block;
     text-align: center;
     margin-bottom: 10px; }
-  .ficha-perfil-atributos .ficha-xp .minimodalAddXp > input, .ficha-perfil-pericias .ficha-xp .minimodalAddXp > input {
+  .ficha-perfil-atributos .ficha-xp .minimodalAddXp > input, .ficha-perfil-atributos .ficha-xp .minimodalAddAttr > input, .ficha-perfil-pericias .ficha-xp .minimodalAddXp > input, .ficha-perfil-pericias .ficha-xp .minimodalAddAttr > input {
     display: inline-block;
     border: 1px solid #fff !important;
     color: #fff;
     text-align: center;
     width: 30px; }
-  .ficha-perfil-atributos .ficha-xp .minimodalAddXp > a, .ficha-perfil-pericias .ficha-xp .minimodalAddXp > a {
+  .ficha-perfil-atributos .ficha-xp .minimodalAddXp > a, .ficha-perfil-atributos .ficha-xp .minimodalAddAttr > a, .ficha-perfil-pericias .ficha-xp .minimodalAddXp > a, .ficha-perfil-pericias .ficha-xp .minimodalAddAttr > a {
     display: inline-block;
     padding: 3px;
     background: #333; }
+
+.ficha-perfil-pericias .ficha-pericia-item .ficha-txt {
+  text-transform: lowercase; }
+
+.ficha-modal-footer {
+  border-top: 1px solid #22212d;
+  padding-top: 5px;
+  margin-top: 10px;
+  font-size: 11px; }
+  .ficha-modal-footer .item-delete, .ficha-modal-footer .item-delete-FAKE {
+    opacity: 0.4;
+    margin-bottom: 5px;
+    display: inline-block;
+    margin-top: 10px; }
+    .ficha-modal-footer .item-delete:hover, .ficha-modal-footer .item-delete-FAKE:hover {
+      opacity: 1; }
+  .ficha-modal-footer .item-delete {
+    display: none; }
+  .ficha-modal-footer .ficha-modal-footer-nota {
+    padding-bottom: 3px;
+    opacity: 0.2;
+    font-size: 9px;
+    font-style: italic; }
 
 .editor-content {
   min-height: 100px; }

@@ -101,7 +101,8 @@
             "jogador" : "NPC",
             "abaAberta" : "perfil",
             "modalAberto" : "modaloff",
-            "editavel" : "true"
+            "editavel" : "true",
+            "xp": 0
 
         },
 
@@ -210,6 +211,7 @@
             "templates" : ["Tdescricao","Tvolume","Tqualidade"]
         },
         "defeito" : {
+            "idN": "",
             "descricao" : "Descrição",
             "custos" : [-1],
             "custosTxt" : ["normal"],
@@ -218,12 +220,24 @@
         },
 
         "qualidade" : {
+            "idN": "",
             "descricao" : "Descrição",
             "explicacao" : "",
             "custos" : [1],
             "custosTxt" : ["normal"],
             "unico" : false,
             "cumulativo" : false
+        },
+
+        "pericia" : {
+            "exibirId" : "false",
+            "idN": "",
+            "atributo" : "forca",
+            "descricao" : "Descrição",
+            "graduacao" : 0,
+            "bonus" : 0,
+            "qualidades" : [],
+            "defeitos" : []
         }
     }
 
