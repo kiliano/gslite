@@ -102,6 +102,7 @@
             "abaAberta" : "perfil",
             "modalAberto" : "modaloff",
             "editavel" : "true",
+            "limiteQualidade": 8,
             "xp": 0,
             "peculiaridades" : {
                 "pec1" :"",
@@ -240,9 +241,7 @@
             "atributo" : "forca",
             "descricao" : "Descrição",
             "graduacao" : 0,
-            "bonus" : 0,
-            "qualidades" : [],
-            "defeitos" : []
+            "bonus" : 0
         }
     }
 

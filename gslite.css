@@ -3836,29 +3836,29 @@ body {
 .ficha-mobile .ficha-perfil-pericias .ficha-pericia-item {
   width: 100%; }
 
-.ficha-modal-atributos strong {
+.ficha-modal-atributos strong, .ficha-modal-qualdef strong {
   font-weight: 400;
   font-size: 10px; }
-.ficha-modal-atributos .ficha-modal-conteudo {
+.ficha-modal-atributos .ficha-modal-conteudo, .ficha-modal-qualdef .ficha-modal-conteudo {
   min-width: 400px; }
-.ficha-modal-atributos input {
+.ficha-modal-atributos input, .ficha-modal-qualdef input {
   border: 1px solid transparent;
   border-radius: 4px; }
-  .ficha-modal-atributos input:hover {
+  .ficha-modal-atributos input:hover, .ficha-modal-qualdef input:hover {
     border: 1px solid #6b6977; }
-  .ficha-modal-atributos input[disabled]:hover {
+  .ficha-modal-atributos input[disabled]:hover, .ficha-modal-qualdef input[disabled]:hover {
     border-color: transparent; }
-.ficha-modal-atributos .ficha-modal-tabela {
+.ficha-modal-atributos .ficha-modal-tabela, .ficha-modal-qualdef .ficha-modal-tabela {
   margin-top: 10px; }
-.ficha-modal-atributos .ficha-modal-tabela-cel .gradiente-txt {
+.ficha-modal-atributos .ficha-modal-tabela-cel .gradiente-txt, .ficha-modal-qualdef .ficha-modal-tabela-cel .gradiente-txt {
   font-size: 20px;
   font-weight: 700; }
-.ficha-modal-atributos .ficha-atributo-numero {
+.ficha-modal-atributos .ficha-atributo-numero, .ficha-modal-qualdef .ficha-atributo-numero {
   height: 30px;
   line-height: 30px;
   display: block;
   font-size: 16px; }
-.ficha-modal-atributos .ficha-xp {
+.ficha-modal-atributos .ficha-xp, .ficha-modal-qualdef .ficha-xp {
   opacity: 0.7;
   color: #676671;
   border: 1px solid #676671;
@@ -3956,7 +3956,7 @@ input[disabled]:hover {
 [abrirmodalcontext]:hover {
   cursor: pointer; }
 
-.tox-edit-area iframe {
+.tox.tox-tinymce .tox-edit-area__iframe {
   background: #fff; }
 
 .ficha-carac-qualidef {
@@ -4009,7 +4009,8 @@ input[disabled]:hover {
 
 .ficha-carac-nome {
   font-size: 16px;
-  position: relative; }
+  position: relative;
+  padding-right: 35px; }
   .ficha-carac-nome .gradiente-txt {
     font-size: 20px;
     font-weight: bold;
@@ -4100,6 +4101,61 @@ input[disabled]:hover {
   width: 100%;
   margin-top: 10px;
   padding-right: 10px; }
+
+.ficha-qualidef-header {
+  position: relative; }
+  .ficha-qualidef-header h1 {
+    padding-right: 50px; }
+
+.ficha-qualidef-custo-box {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  font-size: 18px;
+  width: 45px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  z-index: 2;
+  padding: 5px; }
+
+.ficha-modal-qualdef [data-field="data.explicacao"] {
+  font-weight: 400;
+  font-size: 14px;
+  opacity: 0.6; }
+.ficha-modal-qualdef .ficha-modal-tabela-cel {
+  padding-left: 20px; }
+  .ficha-modal-qualdef .ficha-modal-tabela-cel .gradiente-txt {
+    margin: 0 auto 0 auto;
+    width: 45px;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap; }
+    .ficha-modal-qualdef .ficha-modal-tabela-cel .gradiente-txt input {
+      width: 35px;
+      text-align: left; }
+
+input[name="data.limiteQualidade"] {
+  display: inline-block;
+  width: 20px;
+  text-align: center; }
+
+.ficha-qualidade-invalido {
+  color: red !important; }
 
 [fichaId] {
   display: none; }

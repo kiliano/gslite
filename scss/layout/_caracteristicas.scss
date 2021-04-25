@@ -64,6 +64,7 @@
 .ficha-carac-nome {
     font-size: 16px;
     position: relative;
+    padding-right:35px;
     
     .gradiente-txt {
         font-size: 20px;
@@ -196,4 +197,89 @@
     width: 100%;
     margin-top: 10px;
     padding-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+.ficha-qualidef-header {
+    position: relative;
+    h1 {
+        padding-right: 50px;
+    }
+}
+
+.ficha-qualidef-custo-box {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        font-size: 18px;
+        width: 45px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 10px;
+        z-index: 2;
+        padding: 5px;
+
+}
+
+.ficha-carac-nome {
+        
+
+    }
+
+.ficha-modal-qualdef {
+
+    [data-field="data.explicacao"] {
+        font-weight: 400;
+        font-size: 14px;
+        opacity: 0.6;
+    }
+
+    .ficha-modal-tabela-cel {
+        padding-left: 20px;
+        .gradiente-txt {
+            margin: 0 auto 0 auto;
+            width: 45px;
+
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+
+            input {
+                width: 35px;
+                text-align: left;
+            }
+        }
+    }
+}
+
+
+input[name="data.limiteQualidade"] {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
+
+.ficha-qualidade-invalido {
+    color: red !important;
 }

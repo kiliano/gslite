@@ -1,4 +1,4 @@
-<div class="ficha ficha-defeito ficha-qualidef" itemqualidefId="{{item._id}}">
+<div class="ficha ficha-qualidade ficha-qualidef" itemqualidefId="{{item._id}}">
     <form class="{{cssClass}}" autocomplete="off">
         <header class="sheet-header ficha-qualidef-header">
             <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
@@ -8,13 +8,6 @@
             </div>
         </header>
         <div>
-            <!-- "idN": "",
-            "atributo" : "forca",
-            "descricao" : "Descrição",
-            "graduacao" : 0,
-            "bonus" : 0,
-            "qualidades" : [],
-            "defeitos" : [] -->
             <br>
             <input type="hidden" name="data.idN" value="{{data.idN}}" style="border: 1px solid #111;">
             <input type="hidden" name="data.explicacao" value="{{data.explicacao}}" style="border: 1px solid #111;">
@@ -35,10 +28,6 @@
             <br>
             {{editor content=data.descricao target="data.descricao" button=true owner=owner editable=editable}}
             <br>
-            
-
-
-
             <div class="ficha-qualidef-selects ficha-qualidef-selects-{{item._id}}" style="display: block;">
                 {{#if (eq data.unico "nao")}}Não Único{{/if}}
                 {{#if (eq data.unico "sim")}}Único{{/if}} | 
@@ -47,7 +36,6 @@
                 {{#if (eq data.cumulativo "sim")}}Cumulativo{{/if}} 
             </div>
 
-            
 
             <script>
                 var qualdefId{{item._id}} = 0;

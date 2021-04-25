@@ -435,21 +435,23 @@
 					<div class="ficha-carac-qualidades">
 						<div class="ficha-bloco">
 							<div class="ficha-carac-titulo">
-								qualidades <span class="soma">8<span class="mini">/8 <span class="limite">(limite 8)</span></span></span>
+								qualidades <span class="soma"><span class="jsSomaQualidades">0</span><span class="mini">/<span class="jsSomaDefeitosLimite">0</span><span class="limite"> (limite <input name="data.limiteQualidade" type="text" value="{{data.limiteQualidade}}" placeholder=""/>)</span></span></span>
 							</div>
 
 							<ul>
+								{{#each qualidades as |qualidade id|}}
 								<li>
-									<a href="javascript:void(0)">
+									<a href="javascript:void(0)" abrirmodalcontext="qualidade{{qualidade._id}}">
 										<div class="ficha-carac-nome">
-											foco em arma
-											<span class="gradiente-txt">2</span>
+											{{qualidade.name}}
+											<span class="gradiente-txt"><span class="jsQualidadePonto">{{qualidade.data.custos}}</span></span>
 										</div>
 										<div class="ficha-carac-resumo">
-											Foco em espada curta
+											{{qualidade.data.explicacao}}
 										</div>
 									</a>
 								</li>
+								{{/each}}
 
 							</ul>
 							
@@ -461,28 +463,25 @@
 					<div class="ficha-carac-defeitos">
 						<div class="ficha-bloco">
 							<div class="ficha-carac-titulo">
-								defeitos <span class="soma">-10</span>
+								defeitos <span class="soma">-<span class="jsSomaDefeitos">0</span></span>
 							</div>
 
 							<ul>
 								{{#each defeitos as |defeito id|}}
-								{{!-- 
-									"idN": "",
-									"descricao" : "Descrição",
-									"custos" : [-1],
-									"custosTxt" : ["normal"],
-									"unico" : false,
-									"cumulativo" : false
-								--}}
-
+								{{!-- "idN": "",
+								"descricao" : "Descrição",
+								"explicacao" : "Explicação base",
+								"custos" : 1,
+								"unico" : "nao",
+								"cumulativo" : "nao" --}}
 								<li>
 									<a href="javascript:void(0)" abrirmodalcontext="defeito{{defeito._id}}">
 										<div class="ficha-carac-nome">
 											{{defeito.name}}
-											<span class="gradiente-txt">{{defeito.data.custos}}</span>
+											<span class="gradiente-txt">-<span class="jsDefeitoPonto">{{defeito.data.custos}}</span></span>
 										</div>
 										<div class="ficha-carac-resumo">
-											{{defeito.data.descricao}}
+											{{defeito.data.explicacao}}
 										</div>
 									</a>
 								</li>
@@ -1155,6 +1154,121 @@
 				{{/each}}
 				{{!-- /MODAIS PERICIAS --}}
 
+
+				{{!-- MODAIS QUALIDADES --}}
+				{{#each qualidades as |qualidade id|}}
+				<div class="ficha-modal-qualdef ficha-modal item" modalId="qualidade{{qualidade._id}}" data-item-id="{{qualidade._id}}">
+					<div class="ficha-modal-center">
+						<div class="ficha-modal-conteudo">
+							<div class="ficha-modal-titulo">
+								<span class="gradiente-txt">
+									<input type="text" data-field="name" class="inline-edit" value="{{qualidade.name}}">
+								</span>
+
+								<input type="text" data-field="data.explicacao" class="inline-edit" value="{{data.explicacao}}">
+							</div>
+
+							<div class="ficha-modal-txt">
+								<div class="ficha-modal-tabela">
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<strong>pontos</strong>
+										</div>
+									</div>
+
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<span class="gradiente-txt">
+												<input class="inline-edit" type="text" data-field="data.custos" value="{{qualidade.data.custos}}" style="text-align: center">
+											</span>
+										</div>
+									</div>
+								</div>
+								<br>
+								<input class="html-code" type="hidden" value="{{qualidade.data.descricao}}">
+
+
+							</div>
+							
+
+							<div class="ficha-modal-footer">
+								<a href="javascript:void(0)" class="item-delete-FAKE">
+									<i class="fas fa-trash"></i> deletar qualidade
+								</a>
+
+								<a href="javascript:void(0)" class="item-delete">
+									<i class="fas fa-trash"></i> TEM CERTEZA?
+								</a>
+							</div>
+
+							<a href="javascript:void(0)" class="ficha-modal-fechar" fecharModal="">x</a>
+						</div>
+
+						<div class="ficha-modal-overlay" fecharModal=""></div>
+					</div>
+				</div>
+
+				{{/each}}
+				{{!-- /MODAIS QUALIDADES --}}
+
+
+
+				{{!-- MODAIS DEFEITOS --}}
+				{{#each defeitos as |defeito id|}}
+				<div class="ficha-modal-qualdef ficha-modal item" modalId="defeito{{defeito._id}}" data-item-id="{{defeito._id}}">
+					<div class="ficha-modal-center">
+						<div class="ficha-modal-conteudo">
+							<div class="ficha-modal-titulo">
+								<span class="gradiente-txt">
+									<input type="text" data-field="name" class="inline-edit" value="{{defeito.name}}">
+								</span>
+
+								<input type="text" data-field="data.explicacao" class="inline-edit" value="{{data.explicacao}}">
+							</div>
+
+							<div class="ficha-modal-txt">
+								<div class="ficha-modal-tabela">
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<strong>pontos</strong>
+										</div>
+									</div>
+
+									<div class="ficha-modal-tabela-linha">
+										<div class="ficha-modal-tabela-cel">
+											<span class="gradiente-txt">
+												-<input class="inline-edit" type="text" data-field="data.custos" value="{{defeito.data.custos}}">
+											</span>
+										</div>
+									</div>
+								</div>
+								<br>
+								<input class="html-code" type="hidden" value="{{defeito.data.descricao}}">
+
+
+							</div>
+							
+
+							<div class="ficha-modal-footer">
+								<a href="javascript:void(0)" class="item-delete-FAKE">
+									<i class="fas fa-trash"></i> deletar defeito
+								</a>
+
+								<a href="javascript:void(0)" class="item-delete">
+									<i class="fas fa-trash"></i> TEM CERTEZA?
+								</a>
+							</div>
+
+							<a href="javascript:void(0)" class="ficha-modal-fechar" fecharModal="">x</a>
+						</div>
+
+						<div class="ficha-modal-overlay" fecharModal=""></div>
+					</div>
+				</div>
+
+				{{/each}}
+				{{!-- /MODAIS DEFEITOS --}}
+
 			</div>
 			<!-- MODAIS -->
 			{{/if}}
@@ -1447,7 +1561,52 @@
 
             });
 
+			{{!-- html code --}}
+
+			$( "[fichaunica='{{actor._id}}'] .html-code").each(function(){
+				$(this).after($(this).val());
+			});
+
+			var jsSomaQualidades{{actor._id}} = 0;
+			var jsSomaDefeitos{{actor._id}} = 0;
+			var jsLimiteQualidades{{actor._id}} = $('[name="data.limiteQualidade"]').val();
+
+			$( "[fichaunica='{{actor._id}}'] .jsQualidadePonto").each(function(){
+				jsSomaQualidades{{actor._id}} = jsSomaQualidades{{actor._id}}+parseInt($(this).html());
+			});
+
+
+			$( "[fichaunica='{{actor._id}}'] .jsDefeitoPonto").each(function(){
+				jsSomaDefeitos{{actor._id}} = jsSomaDefeitos{{actor._id}}+parseInt($(this).html());
+			});
+
+			$("[fichaunica='{{actor._id}}'] .jsSomaQualidades").html(jsSomaQualidades{{actor._id}});
+			$("[fichaunica='{{actor._id}}'] .jsSomaDefeitos").html(jsSomaDefeitos{{actor._id}});
+
+			if(jsSomaDefeitos{{actor._id}} < jsLimiteQualidades{{actor._id}}) {
+				$("[fichaunica='{{actor._id}}'] .jsSomaDefeitosLimite").html(jsSomaDefeitos{{actor._id}});
+
+				if(jsSomaQualidades{{actor._id}} > jsSomaDefeitos{{actor._id}}) {
+					$("[fichaunica='{{actor._id}}'] .ficha-carac-qualidades .ficha-carac-titulo").addClass("ficha-qualidade-invalido");
+				} else {
+					$("[fichaunica='{{actor._id}}'] .ficha-carac-qualidades .ficha-carac-titulo").removeClass("ficha-qualidade-invalido");
+				}
+			} else {
+				$("[fichaunica='{{actor._id}}'] .jsSomaDefeitosLimite").html(jsLimiteQualidades{{actor._id}});
+
+				if(jsSomaQualidades{{actor._id}} > jsLimiteQualidades{{actor._id}}) {
+					$("[fichaunica='{{actor._id}}'] .ficha-carac-qualidades .ficha-carac-titulo").addClass("ficha-qualidade-invalido");
+				} else {
+					$("[fichaunica='{{actor._id}}'] .ficha-carac-qualidades .ficha-carac-titulo").removeClass("ficha-qualidade-invalido");
+				}
+			}
+
 			
+
+
+			
+
+
 
 
 			
@@ -1468,6 +1627,25 @@
 					display: block;
 			}
 			[modalAberto="pericia{{pericia._id}}"] [modalId="pericia{{pericia._id}}"] .ficha-modal-conteudo {
+				display: block;
+			}
+		{{/each}}
+
+
+		{{#each defeitos as |defeito id|}}
+			[modalAberto="defeito{{defeito._id}}"] [modalId="defeito{{defeito._id}}"] {
+					display: block;
+			}
+			[modalAberto="defeito{{defeito._id}}"] [modalId="defeito{{defeito._id}}"] .ficha-modal-conteudo {
+				display: block;
+			}
+		{{/each}}
+
+		{{#each qualidades as |qualidade id|}}
+			[modalAberto="qualidade{{qualidade._id}}"] [modalId="qualidade{{qualidade._id}}"] {
+					display: block;
+			}
+			[modalAberto="qualidade{{qualidade._id}}"] [modalId="qualidade{{qualidade._id}}"] .ficha-modal-conteudo {
 				display: block;
 			}
 		{{/each}}
