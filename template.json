@@ -102,7 +102,13 @@
             "abaAberta" : "perfil",
             "modalAberto" : "modaloff",
             "editavel" : "true",
-            "xp": 0
+            "xp": 0,
+            "peculiaridades" : {
+                "pec1" :"",
+                "pec2" :"",
+                "pec3" :"",
+                "pec4" :""
+            }
 
         },
 
@@ -213,20 +219,19 @@
         "defeito" : {
             "idN": "",
             "descricao" : "Descrição",
-            "custos" : [-1],
-            "custosTxt" : ["normal"],
-            "unico" : false,
-            "cumulativo" : false
+            "explicacao" : "Explicação base",
+            "custos" : 1,
+            "unico" : "nao",
+            "cumulativo" : "nao"
         },
 
         "qualidade" : {
             "idN": "",
             "descricao" : "Descrição",
-            "explicacao" : "",
-            "custos" : [1],
-            "custosTxt" : ["normal"],
-            "unico" : false,
-            "cumulativo" : false
+            "explicacao" : "Explicação base",
+            "custos" : 1,
+            "unico" : "nao",
+            "cumulativo" : "nao"
         },
 
         "pericia" : {

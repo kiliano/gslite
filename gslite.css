@@ -3956,6 +3956,151 @@ input[disabled]:hover {
 [abrirmodalcontext]:hover {
   cursor: pointer; }
 
+.tox-edit-area iframe {
+  background: #fff; }
+
+.ficha-carac-qualidef {
+  width: 100%;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  .ficha-carac-qualidef ul {
+    width: 100%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    position: relative; }
+    .ficha-carac-qualidef ul:after {
+      height: 90%;
+      width: 1px;
+      background: #22212d;
+      content: " ";
+      position: absolute;
+      top: 7%;
+      left: 50%; }
+    .ficha-carac-qualidef ul li {
+      width: 50%;
+      padding: 0 10px; }
+      .ficha-carac-qualidef ul li a {
+        display: block;
+        border-bottom: 1px solid #22212d;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 5px;
+        transition: 300ms ease background; }
+        .ficha-carac-qualidef ul li a:hover {
+          background: rgba(0, 0, 0, 0.15); }
+      .ficha-carac-qualidef ul li:last-child a, .ficha-carac-qualidef ul li:nth-last-child(2):nth-child(odd) a {
+        border-bottom: 0; }
+
+.ficha-carac-nome {
+  font-size: 16px;
+  position: relative; }
+  .ficha-carac-nome .gradiente-txt {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    top: -2px; }
+
+.ficha-carac-resumo {
+  font-size: 12px;
+  opacity: 0.3;
+  padding-top: 4px; }
+
+.ficha-carac-qualidades, .ficha-carac-defeitos {
+  width: 50%;
+  padding-right: 10px;
+  padding-top: 10px; }
+  .ficha-carac-qualidades .ficha-bloco, .ficha-carac-defeitos .ficha-bloco {
+    height: 100%; }
+
+.ficha-carac-qualidades .ficha-carac-titulo {
+  color: #7dc99e; }
+
+.ficha-carac-defeitos .ficha-carac-titulo {
+  color: #d690a3; }
+
+.ficha-mobile .ficha-carac-qualidades, .ficha-mobile .ficha-carac-defeitos {
+  width: 100%; }
+
+.ficha-carac-qualidades .ficha-bloco, .ficha-carac-defeitos .ficha-bloco {
+  padding: 0; }
+
+.ficha-carac-titulo {
+  font-weight: 400;
+  font-size: 12px;
+  font-weight: 100;
+  vertical-align: top;
+  text-align: right;
+  padding-right: 13px; }
+  .ficha-carac-titulo .soma {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 100;
+    position: relative;
+    top: 5px; }
+
+.ficha-carac-qualidades .soma .mini {
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  opacity: 0.3; }
+.ficha-carac-qualidades .soma .limite {
+  font-size: 10px; }
+
+.ficha-pec-titulo {
+  font-size: 12px;
+  opacity: 0.3;
+  padding-top: 4px;
+  font-weight: 300; }
+
+.ficha-pec-box {
+  padding-top: 5px;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%; }
+  .ficha-pec-box input {
+    width: 48.5%;
+    padding: 8px 0;
+    transition: 300ms ease border-bottom;
+    border-bottom: 1px solid #22212d; }
+    .ficha-pec-box input:nth-child(odd) {
+      margin-right: 3%; }
+    .ficha-pec-box input:hover {
+      cursor: pointer;
+      border-bottom-color: #d690a3; }
+
+.ficha-mobile .ficha-pec-box input {
+  margin-right: 0 !important;
+  width: 100%; }
+
+.ficha-carac-peculiaridades {
+  width: 100%;
+  margin-top: 10px;
+  padding-right: 10px; }
+
 [fichaId] {
   display: none; }
 
@@ -3986,6 +4131,31 @@ input[disabled]:hover {
 [abaAberta="perfil"] .ficha-sidebar-menu a[abrirAba="perfil"] {
   opacity: 1; }
   [abaAberta="perfil"] .ficha-sidebar-menu a[abrirAba="perfil"]:before {
+    opacity: 1;
+    width: 100%; }
+
+[abaAberta="caracteristicas"] [fichaId="caracteristicas"] {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start; }
+[abaAberta="caracteristicas"] .ficha-sidebar-menu a[abrirAba="caracteristicas"] {
+  opacity: 1; }
+  [abaAberta="caracteristicas"] .ficha-sidebar-menu a[abrirAba="caracteristicas"]:before {
     opacity: 1;
     width: 100%; }
 

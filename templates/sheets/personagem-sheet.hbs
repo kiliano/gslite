@@ -424,6 +424,103 @@
 
 			</div>
 			<!-- PERFIL -->
+
+
+
+			{{!-- caracteristicas --}}
+			<div class="ficha-conteudo" fichaId="caracteristicas">
+				<div class="ficha-carac-qualidef">
+
+					<!-- Qualidades -->
+					<div class="ficha-carac-qualidades">
+						<div class="ficha-bloco">
+							<div class="ficha-carac-titulo">
+								qualidades <span class="soma">8<span class="mini">/8 <span class="limite">(limite 8)</span></span></span>
+							</div>
+
+							<ul>
+								<li>
+									<a href="javascript:void(0)">
+										<div class="ficha-carac-nome">
+											foco em arma
+											<span class="gradiente-txt">2</span>
+										</div>
+										<div class="ficha-carac-resumo">
+											Foco em espada curta
+										</div>
+									</a>
+								</li>
+
+							</ul>
+							
+						</div>
+					</div>
+					<!-- Qualidades -->
+
+					<!-- defeitos -->
+					<div class="ficha-carac-defeitos">
+						<div class="ficha-bloco">
+							<div class="ficha-carac-titulo">
+								defeitos <span class="soma">-10</span>
+							</div>
+
+							<ul>
+								{{#each defeitos as |defeito id|}}
+								{{!-- 
+									"idN": "",
+									"descricao" : "Descrição",
+									"custos" : [-1],
+									"custosTxt" : ["normal"],
+									"unico" : false,
+									"cumulativo" : false
+								--}}
+
+								<li>
+									<a href="javascript:void(0)" abrirmodalcontext="defeito{{defeito._id}}">
+										<div class="ficha-carac-nome">
+											{{defeito.name}}
+											<span class="gradiente-txt">{{defeito.data.custos}}</span>
+										</div>
+										<div class="ficha-carac-resumo">
+											{{defeito.data.descricao}}
+										</div>
+									</a>
+								</li>
+
+								{{/each}}
+								
+							</ul>
+							
+						</div>
+					</div>
+					<!-- defeitos -->
+
+					<div class="ficha-carac-peculiaridades">
+						<!-- peculiaridades -->
+						<div class="ficha-bloco">
+							<div class="ficha-pec-titulo">
+								peculiaridades
+							</div>
+							<div class="ficha-pec-box">
+								<input type="text" value="{{data.peculiaridades.pec1}}" name="data.peculiaridades.pec1">
+								<input type="text" value="{{data.peculiaridades.pec2}}" name="data.peculiaridades.pec2">
+								<input type="text" value="{{data.peculiaridades.pec3}}" name="data.peculiaridades.pec3">
+								<input type="text" value="{{data.peculiaridades.pec4}}" name="data.peculiaridades.pec4">
+							</div>
+						</div>
+					<!-- peculiaridades -->
+					</div>
+					
+				</div>
+			</div>
+			{{!-- //caracteristicas --}}
+
+
+
+
+
+
+
             {{#if editable}}
             <!-- MODAIs -->
 			<div class="ficha-modais">

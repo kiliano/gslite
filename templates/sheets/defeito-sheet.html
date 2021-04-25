@@ -1,14 +1,51 @@
-<div class="">
+<div class="ficha ficha-defeito ficha-qualidef" itemqualidefId="{{item._id}}">
     <form class="{{cssClass}}" autocomplete="off">
-        <header class="sheet-header">
+        <header class="sheet-header ficha-qualidef-header">
             <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
-            <h1><input name="name" type="text" value="{{item.name}}" placeholder="Nome"/></h1>
+            <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            <div class="ficha-qualidef-custo-box">
+                -<input type="text" name="data.custo" value="{{data.custo}}" class="ficha-qualidef-custo">
+            </div>
         </header>
         <div>
-            <input name="data.explicacao" type="text" value="{{data.explicacao}}" placeholder="Explicacação"/>
-        </div>
-        <div>
+            <!-- "idN": "",
+            "atributo" : "forca",
+            "descricao" : "Descrição",
+            "graduacao" : 0,
+            "bonus" : 0,
+            "qualidades" : [],
+            "defeitos" : [] -->
+            <br>
+            <input type="hidden" name="data.idN" value="{{data.idN}}" style="border: 1px solid #111;">
+
+            
+            <br>
             {{editor content=data.descricao target="data.descricao" button=true owner=owner editable=editable}}
+            <br>
+            <div class="ficha-qualidef-selects">
+                <select name="data.unico">
+                    <option value="nao" {{#if (eq data.unico "nao")}}selected{{/if}}>Não Único</option>
+                    <option value="sim" {{#if (eq data.unico "sim")}}selected{{/if}}>Único</option>
+                </select>
+
+                <select name="data.cumulativo">
+                    <option value="nao" {{#if (eq data.cumulativo "nao")}}selected{{/if}}>Não cumulativo</option>
+                    <option value="sim" {{#if (eq data.cumulativo "sim")}}selected{{/if}}>Cumulativo</option>
+                </select>
+            </div>
+
+            <input type="text" name="data.explicacao" value="{{data.explicacao}}" class="ficha-qualidef-explicacao">
+
+            <script>
+                var periciaId{{item._id}} = 0;
+                $('[itemqualidefId="{{item._id}}"]').contextmenu(function() {
+                    periciaId{{item._id}} +=1;
+
+                    if(periciaId{{item._id}} > 5) {
+                        $('[name="data.idN"]').attr("type", "text");
+                    }
+                });
+            </script>
         </div>
     </form>
     
