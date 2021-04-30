@@ -204,13 +204,13 @@ Hooks.once("init", function(){
         return onlyLettersArray;
     });
 
+   
 
 
-    
-
-    
     
 });
+
+
 
 
 // window-resizable-handle

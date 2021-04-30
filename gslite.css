@@ -4245,4 +4245,108 @@ input[name="data.limiteQualidade"] {
   [modalAberto="fadigamax"] [modalId="fadigamax"] .ficha-modal-conteudo {
     display: block; }
 
+[modalAberto="rollforca"] [modalId="rollforca"] {
+  display: block; }
+  [modalAberto="rollforca"] [modalId="rollforca"] .ficha-modal-conteudo {
+    display: block; }
+
+[modalAberto="rollreflexos"] [modalId="rollreflexos"] {
+  display: block; }
+  [modalAberto="rollreflexos"] [modalId="rollreflexos"] .ficha-modal-conteudo {
+    display: block; }
+
+[modalAberto="rollinteligencia"] [modalId="rollinteligencia"] {
+  display: block; }
+  [modalAberto="rollinteligencia"] [modalId="rollinteligencia"] .ficha-modal-conteudo {
+    display: block; }
+
+[modalAberto="rollempatia"] [modalId="rollempatia"] {
+  display: block; }
+  [modalAberto="rollempatia"] [modalId="rollempatia"] .ficha-modal-conteudo {
+    display: block; }
+
+.ficha-modal-tabela-numero {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px; }
+
+.ficha-modal-rolagem {
+  margin-bottom: 10px; }
+
+.ficha-modal-rolagem-normal {
+  text-align: center; }
+  .ficha-modal-rolagem-normal a {
+    margin-top: 10px;
+    font-size: 40px;
+    display: inline-block;
+    position: relative;
+    z-index: 10; }
+    .ficha-modal-rolagem-normal a:hover, .ficha-modal-rolagem-normal a:focus {
+      text-shadow: none;
+      opacity: 0.8; }
+    .ficha-modal-rolagem-normal a > .icone {
+      display: inline-block;
+      background: #fbe344;
+      background: -moz-linear-gradient(135deg, #fbe344 0%, #ee63a2 100%);
+      background: -webkit-linear-gradient(135deg, #fbe344 0%, #ee63a2 100%);
+      background: linear-gradient(135deg, #fbe344 0%, #ee63a2 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fbe344",endColorstr="#ee63a2",GradientType=1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; }
+
+.ficha-modal-rolagem-anormal {
+  position: relative;
+  margin-top: -45px;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .ficha-modal-rolagem-anormal .linha {
+    height: 30px;
+    width: 2px;
+    margin: 0 45px; }
+  .ficha-modal-rolagem-anormal a {
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    padding: 0 10px; }
+    .ficha-modal-rolagem-anormal a.dg-negativo {
+      color: #ee63a2; }
+    .ficha-modal-rolagem-anormal a.dg-positivo {
+      color: #44fbce; }
+    .ficha-modal-rolagem-anormal a.tooltip-box .tooltip {
+      z-index: 30;
+      bottom: auto;
+      top: 95%; }
+    .ficha-modal-rolagem-anormal a.tooltip-box:hover .tooltip {
+      bottom: auto;
+      top: 105%; }
+    .ficha-modal-rolagem-anormal a .valor {
+      position: absolute;
+      color: #fff;
+      right: 0;
+      top: 5px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 10px;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      width: 15px;
+      height: 15px; }
+
 /*# sourceMappingURL=gslite.css.map */

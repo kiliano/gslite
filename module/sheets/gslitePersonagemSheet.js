@@ -70,4 +70,7 @@ export default class gslitePersonagemSheet extends ActorSheet {
        
     }
 
+
+    
+
 }

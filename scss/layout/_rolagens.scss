@@ -1,0 +1,111 @@
+.ficha-modal-tabela-numero {
+    display: block;
+        height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+.ficha-modal-rolagem {
+	margin-bottom: 10px;
+}
+
+.ficha-modal-rolagem-normal {
+	text-align: center;
+
+	a {
+		margin-top: 10px;
+		font-size: 40px;
+		display: inline-block;
+		position: relative;
+		z-index: 10;
+		&:hover,&:focus {
+			text-shadow: none;
+			opacity: 0.8;
+		}
+
+		> .icone {
+			display: inline-block;
+			background: rgb(251,227,68);
+			background: -moz-linear-gradient(135deg, rgba(251,227,68,1) 0%, rgba(238,99,162,1) 100%);
+			background: -webkit-linear-gradient(135deg, rgba(251,227,68,1) 0%, rgba(238,99,162,1) 100%);
+			background: linear-gradient(135deg, rgba(251,227,68,1) 0%, rgba(238,99,162,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fbe344",endColorstr="#ee63a2",GradientType=1);
+		  -webkit-background-clip: text;
+		  -webkit-text-fill-color: transparent;
+		}
+	}
+}
+
+.ficha-modal-rolagem-anormal {
+	position: relative;
+	margin-top: -45px;
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    .linha {
+    	height: 30px;
+    	width: 2px;
+    	margin: 0 45px;
+    }
+
+    a {
+    	position: relative;
+    	text-align: center;
+		font-size: 16px;
+		padding: 0 10px;
+		&.dg-negativo {
+			color: #ee63a2;
+		}
+
+		&.dg-positivo {
+			color: #44fbce;
+		}
+
+		
+
+		&.tooltip-box {
+			.tooltip {
+				z-index: 30;
+			    bottom: auto;
+			    top: 95%;
+			}
+
+			&:hover {
+				.tooltip {
+				    bottom: auto;
+				    top: 105%;
+				}
+			}
+		}
+    	
+    	.valor {
+    		position: absolute;
+    		color: #fff;
+    		right: 0;
+    		top: 5px;
+    		text-align: center;
+    		font-weight: bold;
+    		font-size: 10px;
+    		background: rgba(0,0,0,0.8);
+    		border-radius: 10px;
+    		width: 15px;
+    		height: 15px;
+    	}
+    }
+}
