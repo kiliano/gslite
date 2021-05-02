@@ -252,7 +252,8 @@
 											/{{data.pv.max}}
 										</div>
 										<div class="ficha-barra-status">
-											{{statusCalc data.pv.value data.pv.max}}
+											{{!-- {{statusCalc data.pv.value data.pv.max}} --}}
+											{{data.pv.status}}
 											<input type="hidden" value="{{statusCalc data.pv.value data.pv.max}}" class="jsPvStatus">
 											<input type="hidden" name="data.pv.status" value="{{data.pv.status}}">
 										</div>
@@ -286,7 +287,8 @@
 											/{{data.fadiga.max}}
 										</div>
 										<div class="ficha-barra-status">
-											{{statusCalc data.fadiga.value data.fadiga.max}}
+											{{!-- {{statusCalc data.fadiga.value data.fadiga.max}} --}}
+											{{data.fadiga.status}}
 											<input type="hidden" value="{{statusCalc data.fadiga.value data.fadiga.max}}" class="jsFadigaStatus">
 											<input type="hidden" name="data.fadiga.status" value="{{data.fadiga.status}}">
 										</div>
@@ -520,112 +522,298 @@
 			<div class="ficha-modais">
 
 				{{!-- ROLAGEM --}}
-				<div class="ficha-modal-atributos ficha-modal" modalId="rollforca">
-					<div class="ficha-modal-center">
-						<div class="ficha-modal-conteudo">
-							<div class="ficha-modal-titulo">
-								<span class="gradiente-txt">
-									<i class="fa fa-dice"></i> teste de força
-								</span>
-							</div>
-
-							<div class="ficha-modal-txt jsModalSoma" rolagenstxt="">
-								<div class="ficha-modal-tabela">
-									<div class="ficha-modal-tabela-linha">
-										<div class="ficha-modal-tabela-cel">
-											<strong>total</strong>
-										</div>
-
-										<div class="ficha-modal-tabela-cel">
-											<strong>atributo</strong>
-										</div>
-
-										<div class="ficha-modal-tabela-cel">
-											<strong>bônus temporário</strong>
-										</div>
-									</div>
-
-									<div class="ficha-modal-tabela-linha">
-										<div class="ficha-modal-tabela-cel">
-											<span class="gradiente-txt">
-												<span class="jsModalSomaTotal"></span>
-											</span>
-										</div>
-
-										<div class="ficha-modal-tabela-cel">
-											<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="força">{{somaAtt data.forca.graduacao data.forca.racial data.forca.bonus}}</span>
-										</div>
-
-
-										<div class="ficha-modal-tabela-cel">
-											<input class="ficha-atributo-numero jsModalSomaNumero" type="number" value="0" rolagemnome="bônus">
-										</div>
-									</div>
+					{{!-- Rolagem Força --}}
+					<div class="ficha-modal-atributos ficha-modal ficha-modal-rolagens" modalId="rollforca">
+						<div class="ficha-modal-center">
+							<div class="ficha-modal-conteudo">
+								<div class="ficha-modal-titulo">
+									<span class="gradiente-txt">
+										<i class="fa fa-dice"></i> teste de força
+									</span>
 								</div>
 
-								<div class="ficha-modal-rolagem">
-									<div class="ficha-modal-rolagem-normal">
-										<a href="javascript:void(0)" class="tooltip-box" rolagembase="2d6" rolagemtxt="{{actor.name}} rolou força!">
-											<span class="icone"><i class="fa fa-dice"></i></span>
-											<span class="tooltip">Teste normal</span>
-										</a>
+								<div class="ficha-modal-txt jsModalSoma" rolagenstxt="">
+									<div class="ficha-modal-tabela">
+										<div class="ficha-modal-tabela-linha">
+											<div class="ficha-modal-tabela-cel">
+												<strong>total</strong>
+											</div>
+
+											<div class="ficha-modal-tabela-cel">
+												<strong>atributo</strong>
+											</div>
+
+											<div class="ficha-modal-tabela-cel">
+												<strong>bônus temporário</strong>
+											</div>
+										</div>
+
+										<div class="ficha-modal-tabela-linha">
+											<div class="ficha-modal-tabela-cel">
+												<span class="gradiente-txt">
+													<span class="jsModalSomaTotal"></span>
+												</span>
+											</div>
+
+											<div class="ficha-modal-tabela-cel">
+												<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="força">{{somaAtt data.forca.graduacao data.forca.racial data.forca.bonus}}</span>
+											</div>
+
+
+											<div class="ficha-modal-tabela-cel">
+												<input class="ficha-atributo-numero jsModalSomaNumero" type="number" value="0" rolagemnome="bônus">
+											</div>
+										</div>
 									</div>
 
-									<div class="ficha-modal-rolagem-anormal">
-										<a href="javascript:void(0)" class="tooltip-box dg-negativo" rolagembase="5d6kl2" rolagemtxt="{{actor.name}} rolou força com 3 dados de desvantagem!" style="opacity:0.4">
-											<i class="fas fa-dice-d6"></i>
-											<span class="valor">+3</span>
-											<span class="tooltip">+3D6 desvantagem</span>
-										</a>
+									<div class="ficha-modal-rolagem">
+										<div class="ficha-modal-rolagem-normal">
+											<a href="javascript:void(0)" class="tooltip-box" rolagembase="2d6" rolagemtxt="{{actor.name}} rolou força!">
+												<span class="icone"><i class="fa fa-dice"></i></span>
+												<span class="tooltip">Teste normal</span>
+											</a>
+										</div>
 
-										<a href="javascript:void(0)" class="tooltip-box dg-negativo" rolagembase="4d6kl2" rolagemtxt="{{actor.name}} rolou força com 3 dados de desvantagem!"  style="opacity:0.6">
-											<i class="fas fa-dice-d6"></i>
-											<span class="valor">+2</span>
-											<span class="tooltip">+2D6 desvantagem</span>
-										</a>
+										<div class="ficha-modal-rolagem-anormal">
+											<a href="javascript:void(0)" class="tooltip-box dg-negativo" rolagembase="5d6kl2" rolagemtxt="{{actor.name}} rolou força com 3 dados de desvantagem!" style="opacity:0.4">
+												<i class="fas fa-dice-d6"></i>
+												<span class="valor">+3</span>
+												<span class="tooltip">+3D6 desvantagem</span>
+											</a>
 
-										<a href="javascript:void(0)" class="tooltip-box dg-negativo" rolagembase="3d6kl2" rolagemtxt="{{actor.name}} rolou força com 3 dados de desvantagem!"  style="opacity:0.8">
-											<i class="fas fa-dice-d6"></i>
-											<span class="valor">+1</span>
-											<span class="tooltip">+1D6 desvantagem</span>
-										</a>
+											<a href="javascript:void(0)" class="tooltip-box dg-negativo" rolagembase="4d6kl2" rolagemtxt="{{actor.name}} rolou força com 3 dados de desvantagem!"  style="opacity:0.6">
+												<i class="fas fa-dice-d6"></i>
+												<span class="valor">+2</span>
+												<span class="tooltip">+2D6 desvantagem</span>
+											</a>
 
-										<div class="linha"></div>
+											<a href="javascript:void(0)" class="tooltip-box dg-negativo" rolagembase="3d6kl2" rolagemtxt="{{actor.name}} rolou força com 3 dados de desvantagem!"  style="opacity:0.8">
+												<i class="fas fa-dice-d6"></i>
+												<span class="valor">+1</span>
+												<span class="tooltip">+1D6 desvantagem</span>
+											</a>
 
-										<a href="javascript:void(0)" class="tooltip-box dg-positivo"  rolagembase="3d6kh2" rolagemtxt="{{actor.name}} rolou força com 3 dados de vantagem!"  style="opacity:0.8">
-											<i class="fas fa-dice-d6"></i>
-											<span class="valor">+1</span>
-											<span class="tooltip">+1D6 vantagem</span>
-										</a>
+											<div class="linha"></div>
 
-										<a href="javascript:void(0)" class="tooltip-box dg-positivo" rolagembase="4d6kh2" rolagemtxt="{{actor.name}} rolou força com 3 dados de vantagem!" style="opacity:0.6">
-											<i class="fas fa-dice-d6"></i>
-											<span class="valor">+2</span>
+											<a href="javascript:void(0)" class="tooltip-box dg-positivo"  rolagembase="3d6kh2" rolagemtxt="{{actor.name}} rolou força com 3 dados de vantagem!"  style="opacity:0.8">
+												<i class="fas fa-dice-d6"></i>
+												<span class="valor">+1</span>
+												<span class="tooltip">+1D6 vantagem</span>
+											</a>
 
-											<span class="tooltip">+2D6 vantagem</span>
-										</a>
+											<a href="javascript:void(0)" class="tooltip-box dg-positivo" rolagembase="4d6kh2" rolagemtxt="{{actor.name}} rolou força com 3 dados de vantagem!" style="opacity:0.6">
+												<i class="fas fa-dice-d6"></i>
+												<span class="valor">+2</span>
 
-										<a href="javascript:void(0)" class="tooltip-box dg-positivo" rolagembase="5d6kh2" rolagemtxt="{{actor.name}} rolou força com 3 dados de vantagem!" style="opacity:0.4">
-											<i class="fas fa-dice-d6"></i>
-											<span class="valor">+3</span>
-											<span class="tooltip">+3D6 vantagem</span>
-										</a>
+												<span class="tooltip">+2D6 vantagem</span>
+											</a>
+
+											<a href="javascript:void(0)" class="tooltip-box dg-positivo" rolagembase="5d6kh2" rolagemtxt="{{actor.name}} rolou força com 3 dados de vantagem!" style="opacity:0.4">
+												<i class="fas fa-dice-d6"></i>
+												<span class="valor">+3</span>
+												<span class="tooltip">+3D6 vantagem</span>
+											</a>
+										</div>
+
+										
 									</div>
 
+									<div class="ficha-modal-extras">
+
+										<div class="ficha-modal-tabela ficha-modal-tabela-manobra">
+											<div class="ficha-modal-tabela-linha">
+												<div class="ficha-modal-tabela-cel">
+													{{!-- <strong>manobra</strong> --}}
+													<select class="ficha-modal-manobra">
+														<option value="sem">
+															Sem manobra
+														</option>
+
+														<option value="surto">
+															Surto de adrenalina
+														</option>
+
+														<option value="mirar">
+															Mirar
+														</option>
+
+														<option value="duplo">
+															Ataque duplo
+														</option>
+
+														<option value="encontrao">
+															Encontrão
+														</option>
+
+														<option value="investida">
+															Investida
+														</option>
+
+														<option value="poderoso">
+															Ataque poderoso
+														</option>
+
+														<option value="sobrepujar">
+															Sobrepujar armadura
+														</option>
+
+														<option value="desarma">
+															Desarme
+														</option>
+
+														<option value="imobilizar">
+															Imobilização
+														</option>
+
+														<option value="esquivaacrobatica">
+															Esquiva acrobática
+														</option>
+
+														<option value="ignorardor">
+															Ignorar dor
+														</option>
+													</select>
+												</div>
+
+												<div class="ficha-modal-tabela-cel">
+													<strong>Outros</strong>
+												</div>
+											</div>
+
+											<div class="ficha-modal-tabela-linha">
+												<div class="ficha-modal-tabela-cel">
+													<div class="ficha-modal-tabela-numero">
+														<input class="ficha-atributo-numero ficha-modal-manobra-resultado jsModalSomaNumero" style="display:none;" type="number" value="0" rolagemnome="manobra">
+														<div class="ficha-modal-manobra-custo" style="display:none;">
+															<span class="jsCustoFadiga">0</span> pontos de fadiga
+														</div>
+													</div>
+												</div>
+
+
+												<div class="ficha-modal-tabela-cel">
+													
+													{{!-- PV e fadiga --}}
+													{{#if (eq data.pv.status "debilitado")}}
+													<label>
+														<input type="checkbox" class="ficha-modal-checkbox" checked>
+														PV debilitado
+														<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="pv debilitado" checkon="-1" checkoff="0">-1</span>
+													</label>
+													{{/if}}
+
+													{{#if (eq data.fadiga.status "debilitado")}}
+													<label>
+														<input type="checkbox" class="ficha-modal-checkbox" checked>
+														Fadiga debilitada
+														<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="fadiga debilitada" checkon="-1" checkoff="0">-1</span>
+													</label>
+													{{/if}}
+
+													{{!-- Dano no torso e cabeça --}}
+													{{#if (eq data.torso.status "ferido")}}
+													<label>
+														<input type="checkbox" class="ficha-modal-checkbox" checked>
+														Torso ferido
+														<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="torso ferido" checkon="-1" checkoff="0">-1</span>
+													</label>
+													{{/if}}
+
+													{{#if (eq data.torso.status "incapacitado")}}
+													<label>
+														<input type="checkbox" class="ficha-modal-checkbox" checked>
+														Torso incap.
+														<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="torso incapacitado" checkon="-1" checkoff="0">-1</span>
+													</label>
+													{{/if}}
+
+													{{!-- Dano nos Braços --}}
+													{{#if (eq data.braco-e.status "ferido")}}
+													<label>
+														<input type="checkbox" class="ficha-modal-checkbox">
+														Braço Esq. ferido
+														<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="braço e. ferido" checkon="-2" checkoff="0">0</span>
+													</label>
+													{{/if}}
+
+													{{#if (eq data.braco-e.status "incapacitado")}}
+													<label>
+														<input type="checkbox" class="ficha-modal-checkbox">
+														Braço Esq. incap.
+														<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="braço e. incapacitado" checkon="-4" checkoff="0">0</span>
+													</label>
+													{{/if}}
+
+													{{#if (eq data.braco-d.status "ferido")}}
+													<label>
+														<input type="checkbox" class="ficha-modal-checkbox">
+														Braço Dir. ferido
+														<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="braço d. ferido" checkon="-2" checkoff="0">0</span>
+													</label>
+													{{/if}}
+
+													{{#if (eq data.braco-d.status "incapacitado")}}
+													<label>
+														<input type="checkbox" class="ficha-modal-checkbox">
+														Braço Dir. incap.
+														<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="braço d. incapacitado" checkon="-4" checkoff="0">0</span>
+													</label>
+													{{/if}}
+
+													{{!-- Dano nas pernas --}}
+													{{#if (eq data.perna-e.status "ferido")}}
+													<label>
+														<input type="checkbox" class="ficha-modal-checkbox">
+														Perna Esq. ferida
+														<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="perna e. ferida" checkon="-2" checkoff="0">0</span>
+													</label>
+													{{/if}}
+
+													{{#if (eq data.perna-e.status "incapacitado")}}
+													<label>
+														<input type="checkbox" class="ficha-modal-checkbox">
+														Perna Esq. incap.
+														<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="perna e. incapacitada" checkon="-4" checkoff="0">0</span>
+													</label>
+													{{/if}}
+
+													{{#if (eq data.perna-d.status "ferido")}}
+													<label>
+														<input type="checkbox" class="ficha-modal-checkbox">
+														Perba Dir. ferida
+														<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="perna d. ferida" checkon="-2" checkoff="0">0</span>
+													</label>
+													{{/if}}
+
+													{{#if (eq data.perna-d.status "incapacitado")}}
+													<label>
+														<input type="checkbox" class="ficha-modal-checkbox">
+														Perba Dir. incap.
+														<span class="ficha-modal-tabela-numero jsModalSomaNumero" rolagemnome="perna d. incapacitada" checkon="-4" checkoff="0">0</span>
+													</label>
+													{{/if}}
+
+													
+												
+													{{!-- <input class="ficha-atributo-numero jsModalSomaNumero" type="number" value="0" rolagemnome="bônus"> --}}
+												</div>
+											</div>
+										</div>
+
+									</div>
+									
 									
 								</div>
 								
-								
+
+
+								<a href="javascript:void(0)" class="ficha-modal-fechar" fecharModal="">x</a>
 							</div>
-							
 
-
-							<a href="javascript:void(0)" class="ficha-modal-fechar" fecharModal="">x</a>
+							<div class="ficha-modal-overlay" fecharModal=""></div>
 						</div>
-
-						<div class="ficha-modal-overlay" fecharModal=""></div>
 					</div>
-				</div>
+					{{!-- /Rolagem Força --}}
 				{{!-- /ROLAGEM --}}
 
 				<!-- MODAL FORÇA -->
@@ -1580,7 +1768,7 @@
 			var statusPvReal = $('[fichaunica="{{actor._id}}"] [name="data.pv.status"]').val();
 
 			if(statusPv != statusPvReal) {
-				$('[fichaunica="{{actor._id}}"] [name="data.pv.status"]').val(statusPv);
+				$('[fichaunica="{{actor._id}}"] [name="data.pv.status"]').val(statusPv).trigger("change");
 			}
 
 			var fadigaMaxCalculado = $('[fichaunica="{{actor._id}}"] .jsFadigaMaxima').val();
@@ -1592,8 +1780,8 @@
 			var statusFadiga = $('[fichaunica="{{actor._id}}"] .jsFadigaStatus').val();
 			var statusFadigaReal = $('[fichaunica="{{actor._id}}"] [name="data.fadiga.status"]').val();
 
-			if(statusPv != statusPvReal) {
-				$('[fichaunica="{{actor._id}}"] [name="data.fadiga.status"]').val(statusFadiga);
+			if(statusFadiga != statusFadigaReal) {
+				$('[fichaunica="{{actor._id}}"] [name="data.fadiga.status"]').val(statusFadiga).trigger("change");
 			}
 
 
@@ -1710,36 +1898,66 @@
 				let somaRolagens = 0;
 				let textoRolagens = "";
 				$(this).find(".jsModalSomaNumero").each(function(){
-					textoRolagens += " + "+$(this).attr("rolagemnome")+"(";
+					
 					if($(this).val()) {
-						somaRolagens += parseInt($(this).val());
-						textoRolagens += parseInt($(this).val());
+						if(parseInt($(this).val()) !== 0) {
+							textoRolagens += " + "+$(this).attr("rolagemnome")+"(";
+							somaRolagens += parseInt($(this).val());
+							textoRolagens += parseInt($(this).val());
+							textoRolagens += ")";
+						}
 						
 					} else {
-						somaRolagens += parseInt($(this).text());
-						textoRolagens += parseInt($(this).text());
+						if(parseInt($(this).text()) !== 0) {
+							textoRolagens += " + "+$(this).attr("rolagemnome")+"(";
+							somaRolagens += parseInt($(this).text());
+							textoRolagens += parseInt($(this).text());
+							textoRolagens += ")";
+						}
 					}
-					textoRolagens += ")";
+					
 				});
 
 				$(this).find(".jsModalSomaTotal").text(somaRolagens);
 				$(this).attr("rolagenstxt",textoRolagens);
 			});
 
-			$("[fichaunica='{{actor._id}}'] input.jsModalSomaNumero").change(function(){
+			$("[fichaunica='{{actor._id}}'] input.jsModalSomaNumero, [fichaunica='{{actor._id}}'] select.jsModalSomaNumero, [fichaunica='{{actor._id}}'] .ficha-modal-checkbox").change(function(){
+
+				//Checkbox
+				if($(this).attr('type') === "checkbox") {
+					if($(this).prop( "checked" )) {
+						let attrCheck = $(this).parent("label").find("[checkon]").attr('checkon');
+						$(this).parent("label").find("[checkon]").text(attrCheck);
+					} else {
+						let attrCheck = $(this).parent("label").find("[checkoff]").attr('checkoff');
+						$(this).parent("label").find("[checkoff]").text(attrCheck);
+					}
+				}
+
+				//Somando rolagens
 				let somaRolagens = 0;
 				let textoRolagens = "";
 				$(this).parents(".jsModalSoma").find(".jsModalSomaNumero").each(function(){
-					textoRolagens += " + "+$(this).attr("rolagemnome")+"(";
+					
 					if($(this).val()) {
-						somaRolagens += parseInt($(this).val());
-						textoRolagens += parseInt($(this).val());
+
+						if(parseInt($(this).val()) !== 0) {
+							textoRolagens += " + "+$(this).attr("rolagemnome")+"(";
+							somaRolagens += parseInt($(this).val());
+							textoRolagens += parseInt($(this).val());
+							textoRolagens += ")";
+						}
 						
 					} else {
-						somaRolagens += parseInt($(this).text());
-						textoRolagens += parseInt($(this).text());
+						if(parseInt($(this).text()) !== 0) {
+							textoRolagens += " + "+$(this).attr("rolagemnome")+"(";
+							somaRolagens += parseInt($(this).text());
+							textoRolagens += parseInt($(this).text());
+							textoRolagens += ")";
+						}
 					}
-					textoRolagens += ")";
+					
 				});
 
 				$(this).parents(".jsModalSoma").find(".jsModalSomaTotal").text(somaRolagens);
@@ -1754,6 +1972,23 @@
 				textoRolagem += " "+$(this).parents(".jsModalSoma").attr("rolagenstxt");
 				codigoRolagem += " + "+$(this).parents(".jsModalSoma").find(".jsModalSomaTotal").text();
 				new Roll(codigoRolagem).roll().toMessage({ flavor: textoRolagem})
+			});
+
+			$("[fichaunica='{{actor._id}}'] select.ficha-modal-manobra").change(function(){
+				const manobraSelecionada = $(this).val();
+
+				if(manobraSelecionada === "sem") {
+					$(this).parents(".jsModalSoma").find(".ficha-modal-manobra-resultado").val("0").trigger("change").hide();
+					$(this).parents(".jsModalSoma").find(".ficha-modal-manobra-custo").hide();
+					$(this).parents(".jsModalSoma").find(".ficha-modal-manobra-custo .jsCustoFadiga").text("0");
+				}
+
+				if(manobraSelecionada === "surto") {
+					$(this).parents(".jsModalSoma").find(".ficha-modal-manobra-resultado").val("1").trigger("change").show();
+					$(this).parents(".jsModalSoma").find(".ficha-modal-manobra-custo").show();
+					$(this).parents(".jsModalSoma").find(".ficha-modal-manobra-custo .jsCustoFadiga").text("-1");
+				}
+				
 			});
 
 

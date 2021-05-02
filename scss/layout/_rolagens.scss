@@ -109,3 +109,62 @@
     	}
     }
 }
+
+
+.ficha-modal-tabela-manobra {
+	margin-top: 25px !important;
+	.ficha-modal-tabela-numero {
+	    height: auto;
+	    min-height: 30px;
+	}
+}
+
+.ficha-modal-manobra-custo {
+	font-size: 11px;
+	opacity: 0.3;
+	line-height: 11px;
+}
+
+select.ficha-modal-manobra {
+	width: 100%;
+}
+
+.ficha-modal-tabela {
+	label {
+		font-size: 11px;
+		color: #777;
+		&:hover {
+			cursor: pointer;
+		}
+
+		input {
+			display: inline-block;
+			width: auto;
+			position: relative;
+			top: 2px;
+		}
+
+		.ficha-modal-tabela-numero {
+			display: inline;
+			color: #fff;
+			font-weight: bold;
+		}
+	} 
+} 
+
+
+.ficha-modal-rolagens {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 75%;
+	border-radius: 15px;
+	overflow: hidden;
+}
+.ficha-mobile {
+	.ficha-modal-rolagens {
+		width: 100%;
+		right: 0;
+	}
+}
